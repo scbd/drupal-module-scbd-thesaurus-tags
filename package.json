@@ -1,0 +1,5 @@
+{
+    "scripts":{
+        "upload": " scp -r . ubuntu@us1.staging.infra.cbd.int:/home/ubuntu/efs/drupal-multisite-instances/bl2/modules/contrib/scbd-field/"
+    }
+}

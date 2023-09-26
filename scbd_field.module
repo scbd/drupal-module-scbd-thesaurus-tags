@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * SCBD thesaurus field.
+ */
+
+/**
+ * @defgroup scbd_field
+ * @{
+ * Examples using Field Types API.
+ *
+ * Providing a field requires:
+ * - Defining an entity field item. Entity field items are typed data objects
+ *   containing the field values.
+ *   - Drupal\scbd_field\Plugin\Field\FieldType\ScbdFieldThesaurus
+ * - Defining a field type schema at config/schema/[module_name].schema.yml
+ *   - config/schema/scbd_field.schema.yml
+ * - One or more widgets specifying how the field appears in edit forms
+ *   - Drupal\scbd_field\Plugin\Field\ScbdThesaurusWidget
+ * - One or more formatters specifying how the field appears in displayed
+ *   entities
+ *   - Drupal\scbd_field\Plugin\FieldFormatter\SimpleTextFormatter
+ *
+ * @see field_types
+ * @see field
+ * @see schemaapi
+ *
+ * @} End of "defgroup scbd_field".
+ */

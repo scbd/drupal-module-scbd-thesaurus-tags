@@ -1,0 +1,7 @@
+# Provides a simple user interface that tells the developer where to go.
+scbd_field.description:
+  path: '/'
+  defaults:
+    _controller: '\Drupal\scbd_field\Controller\ScbdFieldController::description'
+  requirements:
+    _permission: 'access content'

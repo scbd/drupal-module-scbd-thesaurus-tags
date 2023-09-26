@@ -1,0 +1,9 @@
+name: SCBD Field
+type: module
+description: Tag selector for SCBD Thesaurus.
+package: SCBD
+core_version_requirement: ^9.4 || ^10
+
+dependences:
+  - drupal:node
+  - field
