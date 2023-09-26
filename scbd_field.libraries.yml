@@ -1,0 +1,24 @@
+vue:
+  remote: https://github.com/vuejs/core
+  version: "2.6.11"
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/vuejs/vue/dev/LICENSE
+    mit: true
+  js:
+    https://unpkg.com/vue@3.3.4/dist/vue.global.js: { external: true }
+  css:
+    component:
+      https://cdn.cbd.int/vue-multiselect@3.0.0-beta.1/dist/vue-multiselect.css: { external: true }
+
+thesaurus:
+  version: 1.x
+  css:
+    theme:
+      style.css: {}
+  js:
+    scbd_field.js: {}
+    index.min.js: {}
+  dependencies:
+    - scbd_field/vue
+    - core/jquery

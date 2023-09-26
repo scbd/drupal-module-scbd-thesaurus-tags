@@ -1,0 +1,13 @@
+# @see Configuration schema/metadata at https://drupal.org/node/1905070
+#
+field.scbd_field_thesaurus.value:
+  type: sequence
+  label: 'Default value'
+  sequence:
+    - type: mapping
+      label: 'Default'
+      mapping:
+        value:
+          type: string
+          label: 'Value'
+
