@@ -28,3 +28,18 @@
  *
  * @} End of "defgroup scbd_field".
  */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function scbd_field_page_attachments(array &$attachments) {
+  $countries = \Drupal::config('scbd_field.settings')->get('countries');
+  $current_locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $available_locales = \Drupal::service('language_manager')->getLanguages();
+
+  $attachments['#attached']['drupalSettings']['scbd_field'] = [
+    'countries' => $countries,
+    'locale' => $current_locale,
+    'locales' => array_keys($available_locales), // Add available locales
+  ];
+}

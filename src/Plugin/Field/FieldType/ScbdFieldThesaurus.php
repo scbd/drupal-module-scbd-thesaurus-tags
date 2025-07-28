@@ -33,6 +33,11 @@ class ScbdFieldThesaurus extends FieldItemBase {
           'size' => 'big',
           'not null' => FALSE,
         ],
+        'value2' => [
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ],
       ],
     ];
   }

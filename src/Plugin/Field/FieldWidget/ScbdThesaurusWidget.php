@@ -25,10 +25,11 @@ class ScbdThesaurusWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    //    $element['#title'] = $element['#title'] ?? $this->t('Tags');
 
-    $value = $items[$delta]->value ?? '';
+    $value  = $items[$delta]->value ?? '';
+    $value2 = $items[$delta]->value2 ?? ''; // Second value
     $field_name = str_replace('field_','',strtolower($this->fieldDefinition->getName()));
+
     $element['value'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Tags'),
@@ -39,12 +40,24 @@ class ScbdThesaurusWidget extends WidgetBase {
       '#suffix' => '<div id="scbd-field-thesaurus-'.$field_name.'"></div>',
       '#attributes' => ['class' => ['edit-scbd_field-thesaurus', 'hide']],
       '#attached' => [
-        'drupalSettings' => ['test' => $element['#title'],'element_title' => $field_name , 'element_description' => $element['#description']],
+        'drupalSettings' => ['element_title' => $field_name , 'element_description' => $element['#description']],
         'library' => [
           'scbd_field/thesaurus'
         ],
       ],
     ];
+
+    // Add a second field for value2
+    $element['value2'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t(' '),
+      '#default_value' => $value2,
+      '#size' => 4000000000,
+      '#maxlength' => 4000000000,
+      '#multiple' => FALSE,
+      '#attributes' => ['class' => ['edit-scbd_field-thesaurus-additional', 'hide' ]],
+    ];
+
     return $element;
   }
 

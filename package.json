@@ -1,5 +1,9 @@
 {
     "scripts":{
-        "upload": " scp -r . ubuntu@us1.staging.infra.cbd.int:/home/ubuntu/efs/drupal-multisite-instances/bl2/modules/contrib/scbd-field/"
+        "upload": "scp -r  . ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/",
+        "upload-js": "scp -r ./scbd_field.js ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm-efs/prod/bl2/modules/contrib/scbd-field/scbd_field.js",
+        "upload-css": "scp -r ./style-1-0-7.css ubuntu@us2.staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/style-1-0-7.css",
+        "upload-libs": "scp -r ./scbd_field.libraries.yml ubuntu@us2.staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/scbd_field.libraries.yml"
     }
 }
+
