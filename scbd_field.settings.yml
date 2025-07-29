@@ -1,2 +1,9 @@
 countries:
   - 'be'
+translation:
+  auto_create: false
+  use_all_languages: true
+  target_languages: []
+  copy_source_values: false
+  entity_types:
+    - 'node'

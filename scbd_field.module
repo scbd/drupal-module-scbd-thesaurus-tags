@@ -43,3 +43,71 @@ function scbd_field_page_attachments(array &$attachments) {
     'locales' => array_keys($available_locales), // Add available locales
   ];
 }
+
+/**
+ * Implements hook_entity_insert().
+ */
+function scbd_field_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  // Only process content entities.
+  if (!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+    return;
+  }
+  
+  // Use the translation manager service to handle translation creation.
+  \Drupal::service('scbd_field.translation_manager')->createTranslations($entity, 'insert');
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function scbd_field_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  // Only process content entities.
+  if (!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+    return;
+  }
+  
+  // Use the translation manager service to handle translation creation.
+  \Drupal::service('scbd_field.translation_manager')->createTranslations($entity, 'update');
+}
+
+/**
+ * Helper function to check if an entity has SCBD thesaurus fields.
+ *
+ * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+ *   The entity to check.
+ *
+ * @return bool
+ *   TRUE if the entity has SCBD fields, FALSE otherwise.
+ */
+function scbd_field_entity_has_scbd_fields(Drupal\Core\Entity\ContentEntityInterface $entity) {
+  foreach ($entity->getFieldDefinitions() as $field_definition) {
+    if ($field_definition->getType() === 'scbd_field_thesaurus') {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Helper function to get SCBD field values from an entity.
+ *
+ * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+ *   The entity to get values from.
+ *
+ * @return array
+ *   Array of field values keyed by field name.
+ */
+function scbd_field_get_scbd_field_values(Drupal\Core\Entity\ContentEntityInterface $entity) {
+  $values = [];
+  
+  foreach ($entity->getFieldDefinitions() as $field_name => $field_definition) {
+    if ($field_definition->getType() === 'scbd_field_thesaurus') {
+      $field_value = $entity->get($field_name)->getValue();
+      if (!empty($field_value)) {
+        $values[$field_name] = $field_value;
+      }
+    }
+  }
+  
+  return $values;
+}

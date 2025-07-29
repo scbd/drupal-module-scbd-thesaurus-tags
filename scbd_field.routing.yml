@@ -5,3 +5,12 @@ scbd_field.description:
     _controller: '\Drupal\scbd_field\Controller\ScbdFieldController::description'
   requirements:
     _permission: 'access content'
+
+# Configuration form for SCBD Field settings.
+scbd_field.settings:
+  path: '/admin/config/content/scbd-field'
+  defaults:
+    _form: '\Drupal\scbd_field\Form\ScbdFieldSettingsForm'
+    _title: 'SCBD Field Settings'
+  requirements:
+    _permission: 'administer site configuration'
