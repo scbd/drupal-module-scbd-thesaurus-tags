@@ -1,2 +1,4 @@
 countries:
   - 'be'
+locales:
+  - 'en'

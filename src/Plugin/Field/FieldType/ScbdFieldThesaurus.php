@@ -17,47 +17,55 @@ use Drupal\Core\TypedData\DataDefinition;
  *   module = "scbd_field",
  *   default_widget = "scbd_thesaurus_widget",
  *   default_formatter = "scbd_field_simple_text",
- *   cardinality = 1,
+ *   cardinality = -1,
  * )
  */
-class ScbdFieldThesaurus extends FieldItemBase {
-
+class ScbdFieldThesaurus extends FieldItemBase
+{
   /**
    * {@inheritdoc}
    */
-  public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    return [
-      'columns' => [
+    public static function schema(FieldStorageDefinitionInterface $field_definition)
+    {
+        return [
+        'columns' => [
         'value' => [
           'type' => 'text',
           'size' => 'big',
-          'not null' => FALSE,
+          'not null' => false,
         ],
         'value2' => [
           'type' => 'text',
           'size' => 'big',
-          'not null' => FALSE,
+          'not null' => false,
         ],
-      ],
-    ];
-  }
+        ],
+        ];
+    }
 
   /**
    * {@inheritdoc}
    */
-  public function isEmpty() {
-    $value = $this->get('value')->getValue();
-    return $value === NULL || $value === '';
-  }
+    public function isEmpty()
+    {
+        $value = $this->get('value')->getValue();
+        $value2 = $this->get('value2')->getValue();
+        $empty1 = $value === null || $value === '';
+        $empty2 = $value2 === null || $value2 === '';
+        return $empty1 && $empty2;
+    }
 
   /**
    * {@inheritdoc}
    */
-  public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['value'] = DataDefinition::create('string')
-      ->setLabel(t('Hex value'));
+    public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition)
+    {
+        $properties['value'] = DataDefinition::create('string')
+        ->setLabel(t('Value'));
 
-    return $properties;
-  }
+        $properties['value2'] = DataDefinition::create('string')
+        ->setLabel(t('Value 2'));
 
+        return $properties;
+    }
 }

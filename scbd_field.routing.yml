@@ -1,7 +1,8 @@
-# Provides a simple user interface that tells the developer where to go.
-scbd_field.description:
-  path: '/'
+# Configuration form for SCBD Field settings.
+scbd_field.settings:
+  path: '/admin/config/content/scbd-field'
   defaults:
-    _controller: '\Drupal\scbd_field\Controller\ScbdFieldController::description'
+    _form: '\Drupal\scbd_field\Form\ScbdFieldSettingsForm'
+    _title: 'SCBD Field Settings'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'

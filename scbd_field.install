@@ -1,0 +1,265 @@
+<?php
+
+use Drupal\Core\Database\Connection;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+
+/**
+ * Implements hook_install().
+ */
+function scbd_field_install() {
+  // On fresh install, ensure any storages defined already are unlimited.
+  _scbd_field_ensure_unlimited_cardinality();
+  // Also normalize any pre-seeded data by expanding CSV lists into deltas.
+  _scbd_field_expand_lists_for_all();
+
+  // Import provided translations (.po) bundled with the module, if locale
+  // module is enabled. This ensures strings are available immediately.
+  if (\Drupal::moduleHandler()->moduleExists('locale')) {
+    /** @var \Drupal\locale\SourceStringStorageInterface $source_storage */
+    // Rebuild locale cache to pick up .po files under translations/.
+    \Drupal::service('locale.storage')->deleteConfiguration('scbd_field');
+    // Queue import of translation files (core scans translations/ automatically
+    // on cache rebuild / locale update). Force a string refresh.
+    \Drupal::service('string_translation')->reset();
+  }
+}
+
+/**
+ * Update: Ensure existing scbd_field_thesaurus fields are unlimited.
+ */
+function scbd_field_update_9001() {
+  _scbd_field_ensure_unlimited_cardinality();
+  return t('Updated scbd_field_thesaurus cardinality to unlimited.');
+}
+
+/**
+ * Update: Expand comma-separated lists in value/value2 into additional deltas.
+ */
+function scbd_field_update_9002() {
+  _scbd_field_expand_lists_for_all();
+  return t('Expanded comma-separated lists into deltas for scbd_field_thesaurus.');
+}
+
+/**
+ * Update: Refresh/import bundled translations after adding .po files.
+ */
+function scbd_field_update_9003() {
+  if (\Drupal::moduleHandler()->moduleExists('locale')) {
+    // Flush project to force re-scan of translations directory.
+    if (function_exists('locale_translation_flush_projects')) {
+      locale_translation_flush_projects();
+    }
+    // Refresh only this project's translations if API available.
+    if (function_exists('locale_translation_refresh_projects')) {
+      locale_translation_refresh_projects(['scbd_field']);
+    }
+    // Attempt automatic update/import.
+    if (function_exists('locale_translation_update_projects')) {
+      locale_translation_update_projects(['scbd_field']);
+    }
+    // Reset string translation cache so new strings are picked up immediately.
+    \Drupal::service('string_translation')->reset();
+  }
+  return t('Refreshed translations for scbd_field.');
+}
+
+/**
+ * Expand CSV lists into deltas for all scbd_field_thesaurus field tables.
+ */
+function _scbd_field_expand_lists_for_all(): void {
+  $connection = \Drupal::database();
+  $schema = $connection->schema();
+  $storage = \Drupal::entityTypeManager()->getStorage('field_storage_config');
+  $field_storages = $storage->loadByProperties(['type' => 'scbd_field_thesaurus']);
+
+  if (!$field_storages) {
+    return;
+  }
+
+  foreach ($field_storages as $fs) {
+    $entity_type_id = $fs->getTargetEntityTypeId();
+    $field_name = $fs->getName();
+
+    $definition = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
+    $is_revisionable = method_exists($definition, 'isRevisionable') ? $definition->isRevisionable() : FALSE;
+
+    $data_table = $entity_type_id . '__' . $field_name;
+    $revision_table = $is_revisionable ? ($entity_type_id . '_revision__' . $field_name) : NULL;
+
+    if ($schema->tableExists($data_table)) {
+      _scbd_field_expand_lists_in_table($connection, $data_table, FALSE);
+    }
+    if ($revision_table && $schema->tableExists($revision_table)) {
+      _scbd_field_expand_lists_in_table($connection, $revision_table, TRUE);
+    }
+  }
+}
+
+/**
+ * Ensure cardinality is unlimited for all scbd_field_thesaurus storages.
+ */
+function _scbd_field_ensure_unlimited_cardinality(): void {
+  $storage = \Drupal::entityTypeManager()->getStorage('field_storage_config');
+  $field_storages = $storage->loadByProperties(['type' => 'scbd_field_thesaurus']);
+  foreach ($field_storages as $fs) {
+    if ((int) $fs->getCardinality() !== FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED) {
+      $fs->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
+      $fs->save();
+    }
+  }
+}
+
+/**
+ * Expand lists within a single field data table.
+ *
+ * If either value or value2 contains a comma-separated list, set the current
+ * row to the first list item(s) and append additional rows (deltas) for the
+ * remaining items. When both have lists, pair by index; if lengths differ,
+ * missing positions become NULL.
+ *
+ * @param \Drupal\Core\Database\Connection $connection
+ * @param string $table
+ * @param bool $has_revision_id
+ */
+function _scbd_field_expand_lists_in_table(Connection $connection, string $table, bool $has_revision_id): void {
+  // Find groups (entity/lang/deleted[/revision]) having a comma in either column.
+  $query = $connection->select($table, 't');
+  $query->fields('t', ['entity_id', 'langcode', 'deleted']);
+  if ($has_revision_id) {
+    $query->addField('t', 'revision_id');
+  }
+  $query->distinct();
+  $or = $query->orConditionGroup()
+    ->condition('t.value', '%,%', 'LIKE')
+    ->condition('t.value2', '%,%', 'LIKE');
+  $query->condition($or);
+
+  $groups = $query->execute()->fetchAll();
+
+  foreach ($groups as $group) {
+    $keys = [
+      'entity_id' => (int) $group->entity_id,
+      'langcode' => $group->langcode,
+      'deleted' => (int) $group->deleted,
+    ];
+    if ($has_revision_id) {
+      $keys['revision_id'] = (int) $group->revision_id;
+    }
+
+    // Load all rows for this group ordered by delta.
+    $sel = $connection->select($table, 't')
+      ->fields('t')
+      ->condition('entity_id', $keys['entity_id'])
+      ->condition('langcode', $keys['langcode'])
+      ->condition('deleted', $keys['deleted'])
+      ->orderBy('delta', 'ASC');
+    if ($has_revision_id) {
+      $sel->condition('revision_id', $keys['revision_id']);
+    }
+    $result = $sel->execute();
+    $rows = [];
+    foreach ($result as $row) {
+      $rows[(int) $row->delta] = $row;
+    }
+    if (!$rows) {
+      continue;
+    }
+
+    // Track the highest existing delta to append new rows.
+    $max_delta = max(array_keys($rows));
+
+    $to_insert = [];
+
+    foreach ($rows as $delta => $row) {
+      // Split lists for both columns.
+      $list1 = _scbd_field_split_csv($row->value);
+      $list2 = _scbd_field_split_csv($row->value2);
+
+      $count1 = count($list1);
+      $count2 = count($list2);
+      if ($count1 <= 1 && $count2 <= 1) {
+        // Normalize single values (trim only) when needed.
+        $new_v1 = $count1 === 1 ? $list1[0] : $row->value;
+        $new_v2 = $count2 === 1 ? $list2[0] : $row->value2;
+        if ($new_v1 !== $row->value || $new_v2 !== $row->value2) {
+          _scbd_field_update_row($connection, $table, $keys, (int) $delta, $new_v1, $new_v2, $has_revision_id);
+        }
+        continue;
+      }
+
+      // Update the current row with the first elements (if lists exist).
+      $first_v1 = $count1 ? $list1[0] : $row->value;
+      $first_v2 = $count2 ? $list2[0] : $row->value2;
+      _scbd_field_update_row($connection, $table, $keys, (int) $delta, $first_v1, $first_v2, $has_revision_id);
+
+      // For remaining elements, pair by index and queue inserts.
+      $extra = max($count1, $count2) - 1;
+      for ($i = 1; $i <= $extra; $i++) {
+        $record = [
+          'bundle' => $row->bundle,
+          'deleted' => $row->deleted,
+          'entity_id' => $row->entity_id,
+          'langcode' => $row->langcode,
+          'value' => $i < $count1 ? $list1[$i] : NULL,
+          'value2' => $i < $count2 ? $list2[$i] : NULL,
+        ];
+        if ($has_revision_id && property_exists($row, 'revision_id')) {
+          $record['revision_id'] = $row->revision_id;
+        }
+        $to_insert[] = $record;
+      }
+    }
+
+    // Insert queued rows with new deltas.
+    foreach ($to_insert as $ins) {
+      $max_delta++;
+      $ins['delta'] = $max_delta;
+      $connection->insert($table)
+        ->fields(array_keys($ins))
+        ->values($ins)
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Update a single row's value/value2 by keys and delta.
+ */
+function _scbd_field_update_row(Connection $connection, string $table, array $keys, int $delta, $value, $value2, bool $has_revision_id): void {
+  $upd = $connection->update($table)
+    ->fields(['value' => $value, 'value2' => $value2])
+    ->condition('entity_id', $keys['entity_id'])
+    ->condition('langcode', $keys['langcode'])
+    ->condition('deleted', $keys['deleted'])
+    ->condition('delta', $delta);
+  if ($has_revision_id) {
+    $upd->condition('revision_id', $keys['revision_id']);
+  }
+  $upd->execute();
+}
+
+/**
+ * Split a CSV string into trimmed items and drop empties.
+ *
+ * @param string|null $csv
+ * @return array
+ */
+function _scbd_field_split_csv($csv): array {
+  if ($csv === NULL) {
+    return [];
+  }
+  $csv = trim((string) $csv);
+  if ($csv === '') {
+    return [];
+  }
+  // Fast path: no comma, return single trimmed value.
+  if (strpos($csv, ',') === FALSE) {
+    return [$csv];
+  }
+  $items = array_map('trim', explode(',', $csv));
+  // Remove empty strings resulting from ", ,".
+  $items = array_values(array_filter($items, static function ($v) {
+    return $v !== '';
+  }));
+  return $items;
+}

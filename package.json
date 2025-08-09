@@ -1,9 +1,36 @@
 {
-    "scripts":{
-        "upload": "scp -r  . ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/",
+    "version": "2.0.0-alpha",
+    "scripts": {
+        "test": "npm run test:js",
+        "test:js": "jest",
+        "test:php": "./vendor/bin/phpunit -c phpunit.xml.dist",
+        "test:all": "npm run test:js && npm run test:php",
+        "test:watch": "jest --watch",
+        "coverage:js": "jest --coverage",
+        "coverage:php": "./vendor/bin/phpunit -c phpunit.xml.dist --coverage-text --coverage-clover build/coverage-php/clover.xml",
+        "coverage": "npm run coverage:js && npm run coverage:php",
+        "lint:js": "eslint .",
+        "lint:js-fix": "eslint . --fix",
+        "upload": "scp -r  . ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bl2/modules/contrib/scbd-field/",
         "upload-js": "scp -r ./scbd_field.js ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm-efs/prod/bl2/modules/contrib/scbd-field/scbd_field.js",
-        "upload-css": "scp -r ./style-1-0-7.css ubuntu@us2.staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/style-1-0-7.css",
+        "upload-css": "scp -r ./style-1-1-4.css ubuntu@us2.staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/style-1-1-4.css",
         "upload-libs": "scp -r ./scbd_field.libraries.yml ubuntu@us2.staging.infra.cbd.int:/home/ubuntu/dmsm-efs/dev/bl2/modules/contrib/scbd-field/scbd_field.libraries.yml"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "eslint": "^8.57.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-n": "^16.6.2",
+        "eslint-plugin-promise": "^6.1.1",
+        "@eslint/js": "^9.13.0"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "testMatch": [
+            "**/tests/js/**/*.test.js"
+        ],
+        "coverageDirectory": "coverage/js"
     }
 }
-

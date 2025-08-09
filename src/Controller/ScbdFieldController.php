@@ -2,22 +2,14 @@
 
 namespace Drupal\scbd_field\Controller;
 
-use Drupal\scbd_field\Utility\DescriptionTemplateTrait;
-
 /**
- * Controller for field example description page.
+ * (Deprecated) Previously provided a description page via a Twig template.
  *
- * This class uses the DescriptionTemplateTrait to display text we put in the
- * templates/description.html.twig file.
+ * The description template and supporting trait were removed as unused.
+ * This stub remains temporarily to avoid fatal errors if some external
+ * environment still references the old class. Safe to delete after verifying
+ * no external references (e.g., cached routes) remain.
  */
-class ScbdFieldController {
-
-  use DescriptionTemplateTrait;
-  /**
-   * {@inheritdoc}
-   */
-  protected function getModuleName() {
-    return 'scbd_field';
-  }
-
+class ScbdFieldController
+{
 }

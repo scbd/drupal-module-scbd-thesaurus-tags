@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+#: src/Form/ScbdFieldSettingsForm.php:33
+msgid "Countries"
+msgstr "Countries"
+
+#: src/Form/ScbdFieldSettingsForm.php:34
+msgid "Enter country codes, one per line."
+msgstr "Enter country codes, one per line."
+
+#: src/Form/ScbdFieldSettingsForm.php:40
+msgid "Locales"
+msgstr "Locales"
+
+#: src/Form/ScbdFieldSettingsForm.php:41
+msgid "Enter locale codes, one per line."
+msgstr "Enter locale codes, one per line."
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "Tags"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "Updated scbd_field_thesaurus cardinality to unlimited."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "Expanded comma-separated lists into deltas for scbd_field_thesaurus."

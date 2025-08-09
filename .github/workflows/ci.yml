@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [ master, main, develop, BL-* ]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [8.2]
+        node: [18]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      - name: Install PHP deps
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Install Node deps
+        run: npm ci
+
+      - name: Lint JS
+        run: npm run lint:js
+
+      - name: Run JS tests
+        run: npm run test:js -- --ci --coverage
+
+      - name: Run PHP tests
+        run: npm run test:php -- --coverage-text
+
+      - name: Upload JS coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-js
+          path: coverage/js
+          if-no-files-found: warn
+
+      - name: Upload PHP coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-php
+          path: build/coverage-php
+          if-no-files-found: warn

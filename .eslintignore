@@ -1,0 +1,25 @@
+# Dependencies / vendors
+node_modules/
+vendor/
+**/vendor/**
+
+# Build & artifacts
+dist/
+build/
+coverage/
+.cache/
+.tmp/
+public/
+reports/
+
+# Drupal library folders
+libraries/
+**/libraries/**
+
+# Generated / bundled / minified
+**/*.min.js
+**/*.bundle.js
+**/*.map
+
+# Misc
+.DS_Store

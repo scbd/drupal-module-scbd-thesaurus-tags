@@ -4,10 +4,27 @@ field.scbd_field_thesaurus.value:
   type: sequence
   label: 'Default value'
   sequence:
-    - type: mapping
-      label: 'Default'
-      mapping:
-        value:
-          type: string
-          label: 'Value'
+    type: mapping
+    label: 'Default'
+    mapping:
+      value:
+        type: string
+        label: 'Value'
+
+scbd_field.settings:
+  type: config_object
+  label: 'SCBD Field settings'
+  mapping:
+    countries:
+      type: sequence
+      label: 'Countries'
+      sequence:
+        type: string
+        label: 'Country code'
+    locales:
+      type: sequence
+      label: 'Locales'
+      sequence:
+        type: string
+        label: 'Locale code'
 
