@@ -8,7 +8,7 @@
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
-
+/node_modules
 # Ignore paths that may contain user-generated content
 /web/sites/*/files
 /web/sites/*/public
