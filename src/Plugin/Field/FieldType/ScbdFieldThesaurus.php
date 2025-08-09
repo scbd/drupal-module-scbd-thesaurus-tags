@@ -17,7 +17,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   module = "scbd_field",
  *   default_widget = "scbd_thesaurus_widget",
  *   default_formatter = "scbd_field_simple_text",
- *   cardinality = 1,
+ *   cardinality = -1,
  * )
  */
 class ScbdFieldThesaurus extends FieldItemBase {
@@ -46,8 +46,11 @@ class ScbdFieldThesaurus extends FieldItemBase {
    * {@inheritdoc}
    */
   public function isEmpty() {
-    $value = $this->get('value')->getValue();
-    return $value === NULL || $value === '';
+  $value = $this->get('value')->getValue();
+  $value2 = $this->get('value2')->getValue();
+  $empty1 = $value === NULL || $value === '';
+  $empty2 = $value2 === NULL || $value2 === '';
+  return $empty1 && $empty2;
   }
 
   /**
@@ -55,7 +58,10 @@ class ScbdFieldThesaurus extends FieldItemBase {
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     $properties['value'] = DataDefinition::create('string')
-      ->setLabel(t('Hex value'));
+      ->setLabel(t('Value'));
+
+    $properties['value2'] = DataDefinition::create('string')
+      ->setLabel(t('Value 2'));
 
     return $properties;
   }

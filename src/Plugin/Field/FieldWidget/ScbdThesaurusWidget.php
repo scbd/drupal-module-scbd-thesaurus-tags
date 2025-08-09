@@ -29,8 +29,12 @@ class ScbdThesaurusWidget extends WidgetBase {
     $value  = $items[$delta]->value ?? '';
     $value2 = $items[$delta]->value2 ?? ''; // Second value
     $field_name = str_replace('field_','',strtolower($this->fieldDefinition->getName()));
+  $config = \Drupal::config('scbd_field.settings');
+  $countries = $config->get('countries') ?: [];
+  $locales = $config->get('locales') ?: [];
+  $current_locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-    $element['value'] = [
+  $element['value'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Tags'),
       '#default_value' => $value,
@@ -40,7 +44,15 @@ class ScbdThesaurusWidget extends WidgetBase {
       '#suffix' => '<div id="scbd-field-thesaurus-'.$field_name.'"></div>',
       '#attributes' => ['class' => ['edit-scbd_field-thesaurus', 'hide']],
       '#attached' => [
-        'drupalSettings' => ['element_title' => $field_name , 'element_description' => $element['#description']],
+        'drupalSettings' => [
+          'element_title' => $field_name,
+          'element_description' => $element['#description'] ?? '',
+          'scbd_field' => [
+            'countries' => $countries,
+            'locales' => $locales,
+            'locale' => $current_locale,
+          ],
+        ],
         'library' => [
           'scbd_field/thesaurus'
         ],

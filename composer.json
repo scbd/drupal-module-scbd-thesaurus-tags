@@ -1,0 +1,17 @@
+{
+  "name": "scbd/drupal-module-scbd-thesaurus-tags",
+  "description": "SCBD field module tests",
+  "type": "project",
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  },
+  "autoload": {
+    "files": ["scbd_field.install"]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": "phpunit -c phpunit.xml.dist"
+  }
+}

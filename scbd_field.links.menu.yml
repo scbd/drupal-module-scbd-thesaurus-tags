@@ -1,10 +1,6 @@
-scbd_field.description:
- title:       SCBD Field
- route_name:  scbd_field.description
-
 scbd_field.settings:
   title: 'SCBD Field Settings'
   route_name: scbd_field.settings
-  description: 'Configure SCBD Field translation and thesaurus settings.'
+  description: 'Configure SCBD Field settings.'
   parent: system.admin_config_content
   weight: 10

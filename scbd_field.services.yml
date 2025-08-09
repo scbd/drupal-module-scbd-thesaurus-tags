@@ -1,8 +1,0 @@
-services:
-  scbd_field.translation_manager:
-    class: Drupal\scbd_field\Service\TranslationManager
-    arguments: ['@config.factory', '@language_manager', '@logger.factory', '@entity_type.manager']
-
-  scbd_field.translation_batch:
-    class: Drupal\scbd_field\Service\TranslationBatchService
-    arguments: ['@entity_type.manager', '@config.factory', '@scbd_field.translation_manager']
