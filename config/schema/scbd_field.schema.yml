@@ -15,16 +15,19 @@ scbd_field.settings:
   type: config_object
   label: 'SCBD Field settings'
   mapping:
-    countries:
+    debug:
+      type: boolean
+      label: 'Debug mode'
+    disable_auto_gbf17:
+      type: boolean
+      label: 'Disable auto-add GBF Target 17'
+    disable_auto_countries:
+      type: boolean
+      label: 'Disable auto-add countries'
+    domain_order:
       type: sequence
-      label: 'Countries'
+      label: 'Domain display order'
       sequence:
         type: string
-        label: 'Country code'
-    locales:
-      type: sequence
-      label: 'Locales'
-      sequence:
-        type: string
-        label: 'Locale code'
+        label: 'Domain ID'
 
