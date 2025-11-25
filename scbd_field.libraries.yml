@@ -1,25 +1,34 @@
 vue:
   remote: https://github.com/vuejs/core
-  version: "3.5.15"
+  version: "3.5.24"
   license:
     name: MIT
     url: https://raw.githubusercontent.com/vuejs/vue/dev/LICENSE
   js:
-    https://unpkg.com/vue@^3.5.13/dist/vue.global.prod.js: {}
+    https://unpkg.com/vue@^3.5.24/dist/vue.global.prod.js: {}
   css:
     component:
       https://unpkg.com/vue-multiselect@3.2.0/dist/vue-multiselect.css: {}
       https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css: {}
 
 thesaurus:
-  version: 2.0.0-alpha
+  version: 2.0.1-alpha
   css:
     theme:
-      style-1-1-4-a.css: {}
+      js/vue-field/index.min.js.css: {}
   js:
+    js/vue-field/index.min.js.iife.js: {}
     scbd_field.js: {}
-    index.min.js: {}
   dependencies:
     - scbd_field/vue
     - core/jquery
+    - core/drupalSettings
+
+settings_form:
+  version: 2.0.1-alpha
+  js:
+    js/settings_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
     - core/drupalSettings
