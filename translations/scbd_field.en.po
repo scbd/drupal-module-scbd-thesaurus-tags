@@ -7,21 +7,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 
-#: src/Form/ScbdFieldSettingsForm.php:33
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "Global Biodiversity Framework Targets"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "National Biodiversity Targets (filtered by country)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "Sustainable Development Goals"
+
+#: src/Form/ScbdFieldSettingsForm.php
 msgid "Countries"
 msgstr "Countries"
 
-#: src/Form/ScbdFieldSettingsForm.php:34
-msgid "Enter country codes, one per line."
-msgstr "Enter country codes, one per line."
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "Thematic Areas/Subjects"
 
-#: src/Form/ScbdFieldSettingsForm.php:40
-msgid "Locales"
-msgstr "Locales"
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "Biosafety Thematic Areas"
 
-#: src/Form/ScbdFieldSettingsForm.php:41
-msgid "Enter locale codes, one per line."
-msgstr "Enter locale codes, one per line."
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "Biosafety Thematic Area Groups"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "Geographic Regions"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "Ecosystem Types"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "Debug mode"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "Show the hidden input fields for debugging purposes."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "Automatic Value Settings"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "Configure automatic population of field values."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "Disable auto-add GBF Target 17"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "Disable auto-add countries"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "Domain Configuration"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "All domains are available. Configure their display order below."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "Available Domains"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "Reference list of all domain keys and their display names."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "Domain Order"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "Enter one domain ID per line to specify display order. All listed domains will be available."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "Invalid domain ID: @domain"
 
 #: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
 msgid "Tags"
