@@ -17,7 +17,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   module = "scbd_field",
  *   default_widget = "scbd_thesaurus_widget",
  *   default_formatter = "scbd_field_simple_text",
- *   cardinality = -1,
+ *   cardinality = 1,
  * )
  */
 class ScbdFieldThesaurus extends FieldItemBase
