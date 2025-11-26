@@ -1,0 +1,3 @@
+administer scbd field settings:
+  title: 'Administer SCBD field settings'
+  description: 'Configure SCBD thesaurus field global settings.'

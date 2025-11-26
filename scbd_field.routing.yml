@@ -5,4 +5,4 @@ scbd_field.settings:
     _form: '\Drupal\scbd_field\Form\ScbdFieldSettingsForm'
     _title: 'SCBD Field Settings'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer scbd field settings'

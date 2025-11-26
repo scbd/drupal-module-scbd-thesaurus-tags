@@ -1,5 +1,5 @@
 {
-    "version": "2.0.1-alpha",
+    "version": "2.0.2-alpha",
     "scripts": {
         "test": "npm run test:js",
         "test:js": "jest",
@@ -12,7 +12,8 @@
         "lint:js": "eslint .",
         "lint:js-fix": "eslint . --fix",
         "upload:dev": "scp -r  . ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field/",
-        "deploy:dev": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field/"
+        "deploy:dev": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field/",
+        "deploy:stg": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field/"
     },
     "devDependencies": {
         "jest": "^29.7.0",

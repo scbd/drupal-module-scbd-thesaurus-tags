@@ -22,6 +22,8 @@ Provides a configurable field/widget pair to tag Drupal content entities with te
 
 Navigate to: Configuration -> Content Authoring -> SCBD Thesaurus Field Settings
 
+Grant the **Administer SCBD field settings** permission to any role that needs access to the configuration form.
+
 Adjust:
 
 - Remote thesaurus API base URL
