@@ -82,17 +82,17 @@ class ScbdThesaurusWidget extends WidgetBase
             }
             $existing_values = array_unique($existing_values);
             
-            // Add GBF Target 17 if not disabled and not already present
-            if (!$disable_auto_gbf17 && !in_array('GBF-TARGET-17', $existing_values)) {
+            // Add GBF Target 17 if not already present (always when is_biosafety is true)
+            if (!in_array('GBF-TARGET-17', $existing_values)) {
                 $auto_add_values[] = 'GBF-TARGET-17';
             }
             
             // Add countries if not disabled and not already present
-            if (!$disable_auto_countries && !empty($countries)) {
-                foreach ($countries as $country) {
-                    if (!empty($country) && !in_array($country, $existing_values)) {
-                        $auto_add_values[] = $country;
-                    }
+            // Only auto-add if there is exactly one country
+            if (!$disable_auto_countries && !empty($countries) && count($countries) === 1) {
+                $country = reset($countries);
+                if (!empty($country) && !in_array($country, $existing_values)) {
+                    $auto_add_values[] = $country;
                 }
             }
         }

@@ -87,15 +87,18 @@ class ScbdFieldThesaurus extends FieldItemBase
             $value = $this->get('value')->getValue();
             $values = !empty($value) ? array_filter(array_map('trim', explode(',', $value))) : [];
             
-            // Add Target 17 identifier if not already present and not disabled
-            if (!$disable_auto_gbf17 && !in_array('GBF-TARGET-17', $values)) {
+            // Add Target 17 identifier if not already present (always when is_biosafety is true)
+            if (!in_array('GBF-TARGET-17', $values)) {
                 $values[] = 'GBF-TARGET-17';
             }
             
             // Add countries from bioland.settings.countries as tags if not disabled
+            // Only add if exactly one country is configured
             if (!$disable_auto_countries) {
                 $countries = $bioland_config->get('countries') ?: [];
-                foreach ($countries as $country) {
+                // Only auto-add if there is exactly one country
+                if (count($countries) === 1) {
+                    $country = reset($countries);
                     if (!empty($country) && !in_array($country, $values)) {
                         $values[] = $country;
                     }

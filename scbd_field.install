@@ -4,6 +4,72 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
+ * Implements hook_requirements().
+ *
+ * Validates bioland module version when bioland.settings config exists.
+ */
+function scbd_field_requirements($phase) {
+  $requirements = [];
+
+  if ($phase === 'install' || $phase === 'runtime' || $phase === 'update') {
+    // Check if bioland.settings config exists
+    $bioland_config = \Drupal::config('bioland.settings');
+    $config_data = $bioland_config->getRawData();
+    
+    if (!empty($config_data)) {
+      // bioland.settings exists, so we need to verify the module version
+      $module_handler = \Drupal::moduleHandler();
+      
+      if (!$module_handler->moduleExists('bioland')) {
+        $requirements['scbd_field_bioland'] = [
+          'title' => t('SCBD Field - Bioland Module'),
+          'description' => t('The bioland.settings configuration exists but the bioland module is not installed. Please install the bioland module version 1.0.4 or higher.'),
+          'severity' => REQUIREMENT_ERROR,
+        ];
+      } else {
+        // Module exists, check version
+        $bioland_info = \Drupal::service('extension.list.module')->getExtensionInfo('bioland');
+        $version = $bioland_info['version'] ?? '';
+        
+        // Parse version (format: 1.0.4 or 8.x-1.0.4)
+        if (preg_match('/(\d+)\.(\d+)\.(\d+)/', $version, $matches)) {
+          $major = (int) $matches[1];
+          $minor = (int) $matches[2];
+          $patch = (int) $matches[3];
+          
+          // Check if version is at least 1.0.4
+          $version_sufficient = ($major > 1) || 
+                               ($major === 1 && $minor > 0) || 
+                               ($major === 1 && $minor === 0 && $patch >= 4);
+          
+          if (!$version_sufficient) {
+            $requirements['scbd_field_bioland'] = [
+              'title' => t('SCBD Field - Bioland Module'),
+              'description' => t('The bioland module version @version is installed, but version 1.0.4 or higher is required.', ['@version' => $version]),
+              'severity' => REQUIREMENT_ERROR,
+            ];
+          } else {
+            $requirements['scbd_field_bioland'] = [
+              'title' => t('SCBD Field - Bioland Module'),
+              'value' => t('Version @version', ['@version' => $version]),
+              'severity' => REQUIREMENT_OK,
+            ];
+          }
+        } else {
+          $requirements['scbd_field_bioland'] = [
+            'title' => t('SCBD Field - Bioland Module'),
+            'description' => t('Unable to determine bioland module version. Version 1.0.4 or higher is required.'),
+            'severity' => REQUIREMENT_ERROR,
+          ];
+        }
+      }
+    }
+  }
+
+  return $requirements;
+}
+
+/**
  * Consolidate delta values into comma-separated format for all scbd_field_thesaurus fields.
  */
 function _scbd_field_consolidate_deltas_for_all(): void {
