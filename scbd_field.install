@@ -10,6 +10,9 @@ function scbd_field_install() {
   // On fresh install, ensure cardinality is set to 1.
   _scbd_field_ensure_cardinality_one();
 
+  // Remove any stale scbd_field_simple_text formatter references.
+  _scbd_field_remove_stale_formatter();
+
   // Import provided translations (.po) bundled with the module, if locale
   // module is enabled. This ensures strings are available immediately.
   if (\Drupal::moduleHandler()->moduleExists('locale')) {
@@ -103,6 +106,14 @@ function scbd_field_update_9006() {
   }
   
   return t('Removed enabled_domains configuration - all domains are now available.');
+}
+
+/**
+ * Update: Remove stale scbd_field_simple_text formatter from entity view displays.
+ */
+function scbd_field_update_9007() {
+  $count = _scbd_field_remove_stale_formatter();
+  return t('Removed @count stale scbd_field_simple_text formatter references from entity view displays.', ['@count' => $count]);
 }
 
 /**
@@ -261,3 +272,49 @@ function _scbd_field_consolidate_deltas_in_table(Connection $connection, string 
   }
 }
 
+/**
+ * Remove stale scbd_field_simple_text formatter from entity view displays.
+ *
+ * This formatter was removed from the module, so we need to clean up any
+ * entity_view_display configs that still reference it.
+ *
+ * @return int
+ *   The number of display configurations that were updated.
+ */
+function _scbd_field_remove_stale_formatter(): int {
+  $count = 0;
+  $config_factory = \Drupal::configFactory();
+  
+  // Find all entity view display configurations.
+  $display_configs = $config_factory->listAll('core.entity_view_display.');
+  
+  foreach ($display_configs as $config_name) {
+    $config = $config_factory->getEditable($config_name);
+    $content = $config->get('content');
+    
+    if (!is_array($content)) {
+      continue;
+    }
+    
+    $modified = FALSE;
+    
+    foreach ($content as $field_name => $field_config) {
+      // Check if this field uses the removed formatter.
+      if (isset($field_config['type']) && $field_config['type'] === 'scbd_field_simple_text') {
+        // Replace with the default 'string' formatter which handles text fields.
+        $content[$field_name]['type'] = 'string';
+        // Clear any formatter-specific settings that may not apply.
+        $content[$field_name]['settings'] = [];
+        $modified = TRUE;
+      }
+    }
+    
+    if ($modified) {
+      $config->set('content', $content);
+      $config->save();
+      $count++;
+    }
+  }
+  
+  return $count;
+}
