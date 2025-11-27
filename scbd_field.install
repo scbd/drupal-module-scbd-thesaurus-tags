@@ -4,119 +4,6 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
- * Implements hook_install().
- */
-function scbd_field_install() {
-  // On fresh install, ensure cardinality is set to 1.
-  _scbd_field_ensure_cardinality_one();
-
-  // Remove any stale scbd_field_simple_text formatter references.
-  _scbd_field_remove_stale_formatter();
-
-  // Import provided translations (.po) bundled with the module, if locale
-  // module is enabled. This ensures strings are available immediately.
-  if (\Drupal::moduleHandler()->moduleExists('locale')) {
-    /** @var \Drupal\locale\SourceStringStorageInterface $source_storage */
-    // Rebuild locale cache to pick up .po files under translations/.
-    \Drupal::service('locale.storage')->deleteConfiguration('scbd_field');
-    // Queue import of translation files (core scans translations/ automatically
-    // on cache rebuild / locale update). Force a string refresh.
-    \Drupal::service('string_translation')->reset();
-  }
-}
-
-/**
- * Update: Legacy - no longer needed (replaced by update 9004).
- */
-function scbd_field_update_9001() {
-  return t('Skipped - cardinality update moved to 9004.');
-}
-
-/**
- * Update: Legacy - no longer needed (replaced by update 9004).
- */
-function scbd_field_update_9002() {
-  return t('Skipped - delta consolidation moved to 9004.');
-}
-
-/**
- * Update: Refresh/import bundled translations after adding .po files.
- */
-function scbd_field_update_9003() {
-  if (\Drupal::moduleHandler()->moduleExists('locale')) {
-    // Flush project to force re-scan of translations directory.
-    if (function_exists('locale_translation_flush_projects')) {
-      locale_translation_flush_projects();
-    }
-    // Refresh only this project's translations if API available.
-    if (function_exists('locale_translation_refresh_projects')) {
-      locale_translation_refresh_projects(['scbd_field']);
-    }
-    // Attempt automatic update/import.
-    if (function_exists('locale_translation_update_projects')) {
-      locale_translation_update_projects(['scbd_field']);
-    }
-    // Reset string translation cache so new strings are picked up immediately.
-    \Drupal::service('string_translation')->reset();
-  }
-  return t('Refreshed translations for scbd_field.');
-}
-
-/**
- * Update: Consolidate delta values into comma-separated strings and set cardinality to 1.
- */
-function scbd_field_update_9004() {
-  _scbd_field_consolidate_deltas_for_all();
-  _scbd_field_ensure_cardinality_one();
-  return t('Consolidated delta values into comma-separated format and set cardinality to 1.');
-}
-
-/**
- * Update: Add domain configuration settings.
- */
-function scbd_field_update_9005() {
-  $config = \Drupal::configFactory()->getEditable('scbd_field.settings');
-  
-  // Set default domain order
-  if (!$config->get('domain_order')) {
-    $config->set('domain_order', [
-      'gbfTargets',
-      'nationalTargets7',
-      'countries',
-      'subjects',
-      'sdgs',
-    ]);
-  }
-  
-  $config->save();
-  
-  return t('Added domain configuration settings with default values.');
-}
-
-/**
- * Update: Remove enabled_domains configuration (all domains now available).
- */
-function scbd_field_update_9006() {
-  $config = \Drupal::configFactory()->getEditable('scbd_field.settings');
-  
-  // Remove enabled_domains if it exists
-  if ($config->get('enabled_domains') !== NULL) {
-    $config->clear('enabled_domains');
-    $config->save();
-  }
-  
-  return t('Removed enabled_domains configuration - all domains are now available.');
-}
-
-/**
- * Update: Remove stale scbd_field_simple_text formatter from entity view displays.
- */
-function scbd_field_update_9007() {
-  $count = _scbd_field_remove_stale_formatter();
-  return t('Removed @count stale scbd_field_simple_text formatter references from entity view displays.', ['@count' => $count]);
-}
-
-/**
  * Consolidate delta values into comma-separated format for all scbd_field_thesaurus fields.
  */
 function _scbd_field_consolidate_deltas_for_all(): void {
@@ -317,4 +204,117 @@ function _scbd_field_remove_stale_formatter(): int {
   }
   
   return $count;
+}
+
+/**
+ * Implements hook_install().
+ */
+function scbd_field_install() {
+  // On fresh install, ensure cardinality is set to 1.
+  _scbd_field_ensure_cardinality_one();
+
+  // Remove any stale scbd_field_simple_text formatter references.
+  _scbd_field_remove_stale_formatter();
+
+  // Import provided translations (.po) bundled with the module, if locale
+  // module is enabled. This ensures strings are available immediately.
+  if (\Drupal::moduleHandler()->moduleExists('locale')) {
+    /** @var \Drupal\locale\SourceStringStorageInterface $source_storage */
+    // Rebuild locale cache to pick up .po files under translations/.
+    \Drupal::service('locale.storage')->deleteConfiguration('scbd_field');
+    // Queue import of translation files (core scans translations/ automatically
+    // on cache rebuild / locale update). Force a string refresh.
+    \Drupal::service('string_translation')->reset();
+  }
+}
+
+/**
+ * Update: Legacy - no longer needed (replaced by update 9004).
+ */
+function scbd_field_update_9001() {
+  return t('Skipped - cardinality update moved to 9004.');
+}
+
+/**
+ * Update: Legacy - no longer needed (replaced by update 9004).
+ */
+function scbd_field_update_9002() {
+  return t('Skipped - delta consolidation moved to 9004.');
+}
+
+/**
+ * Update: Refresh/import bundled translations after adding .po files.
+ */
+function scbd_field_update_9003() {
+  if (\Drupal::moduleHandler()->moduleExists('locale')) {
+    // Flush project to force re-scan of translations directory.
+    if (function_exists('locale_translation_flush_projects')) {
+      locale_translation_flush_projects();
+    }
+    // Refresh only this project's translations if API available.
+    if (function_exists('locale_translation_refresh_projects')) {
+      locale_translation_refresh_projects(['scbd_field']);
+    }
+    // Attempt automatic update/import.
+    if (function_exists('locale_translation_update_projects')) {
+      locale_translation_update_projects(['scbd_field']);
+    }
+    // Reset string translation cache so new strings are picked up immediately.
+    \Drupal::service('string_translation')->reset();
+  }
+  return t('Refreshed translations for scbd_field.');
+}
+
+/**
+ * Update: Consolidate delta values into comma-separated strings and set cardinality to 1.
+ */
+function scbd_field_update_9004() {
+  _scbd_field_consolidate_deltas_for_all();
+  _scbd_field_ensure_cardinality_one();
+  return t('Consolidated delta values into comma-separated format and set cardinality to 1.');
+}
+
+/**
+ * Update: Add domain configuration settings.
+ */
+function scbd_field_update_9005() {
+  $config = \Drupal::configFactory()->getEditable('scbd_field.settings');
+  
+  // Set default domain order
+  if (!$config->get('domain_order')) {
+    $config->set('domain_order', [
+      'gbfTargets',
+      'nationalTargets7',
+      'countries',
+      'subjects',
+      'sdgs',
+    ]);
+  }
+  
+  $config->save();
+  
+  return t('Added domain configuration settings with default values.');
+}
+
+/**
+ * Update: Remove enabled_domains configuration (all domains now available).
+ */
+function scbd_field_update_9006() {
+  $config = \Drupal::configFactory()->getEditable('scbd_field.settings');
+  
+  // Remove enabled_domains if it exists
+  if ($config->get('enabled_domains') !== NULL) {
+    $config->clear('enabled_domains');
+    $config->save();
+  }
+  
+  return t('Removed enabled_domains configuration - all domains are now available.');
+}
+
+/**
+ * Update: Remove stale scbd_field_simple_text formatter from entity view displays.
+ */
+function scbd_field_update_9007() {
+  $count = _scbd_field_remove_stale_formatter();
+  return t('Removed @count stale scbd_field_simple_text formatter references from entity view displays.', ['@count' => $count]);
 }
