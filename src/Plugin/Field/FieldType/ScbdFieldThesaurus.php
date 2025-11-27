@@ -16,7 +16,6 @@ use Drupal\Core\TypedData\DataDefinition;
  *   category = @Translation("SCBD"),
  *   module = "scbd_field",
  *   default_widget = "scbd_thesaurus_widget",
- *   default_formatter = "scbd_field_simple_text",
  *   cardinality = 1,
  * )
  */

@@ -13,6 +13,7 @@
         "lint:js-fix": "eslint . --fix",
         "upload:dev": "scp -r  . ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field/",
         "deploy:dev": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field/",
+        "deploy:dev-bl2": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bl2/modules/custom/scbd-field/",
         "deploy:stg": "rsync -av --exclude='.git' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field/"
     },
     "devDependencies": {
