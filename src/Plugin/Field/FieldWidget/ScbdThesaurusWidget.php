@@ -5,7 +5,6 @@ namespace Drupal\scbd_field\Plugin\Field\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\scbd_field\Utility\BiosafetyContext;
 
 /**
  * Plugin implementation of the 'scbd_thesaurus_widget' widget.
@@ -72,15 +71,9 @@ class ScbdThesaurusWidget extends WidgetBase
             'sdgs',
         ];
 
-        // Determine whether this widget should behave in "biosafety" mode.
-        // In addition to the global bioland.settings flag, treat any widget
-        // that includes biosafety-specific domains as being in a biosafety
-        // context (for example on BCH content forms).
-        $is_biosafety_context = BiosafetyContext::isBiosafetyContext($is_biosafety, $domain_order);
-
         // Calculate auto-add values for initial render.
         $auto_add_values = [];
-        if ($is_biosafety_context && $is_new_entity) {
+        if ($is_biosafety && $is_new_entity) {
             // Collect all existing values from all field items.
             $existing_values = [];
             foreach ($items as $item) {
