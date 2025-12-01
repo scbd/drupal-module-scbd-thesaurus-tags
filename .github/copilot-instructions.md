@@ -3,6 +3,7 @@
 ## Important!
 - if this exists follow these memory rules every questions `.github/instructions/memory.md`
 - if it exists the default guidance at `.github/instructions/default.instructions.md` is the canonical source of instructions.
+- **CRITICAL**: Follow the Jira and Git workflow at `.github/instructions/workflow.md` for ALL code generation tasks.
 
 ## Project Overview
 This is a Drupal 9/10 custom module (`scbd_field`) that provides a specialized field type and widget for tagging content with terms from the SCBD (Secretariat of the Convention on Biological Diversity) online thesaurus service. The module combines:
