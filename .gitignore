@@ -69,3 +69,7 @@
 node_modules
 coverage/
 build/coverage-php/
+.github/instructions*
+.env
+.env*
+.github/instructions*
