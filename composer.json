@@ -8,7 +8,12 @@
     "phpunit/php-code-coverage": "^10.1"
   },
   "autoload": {
-    "files": ["scbd_field.install"]
+    "psr-4": {
+      "Drupal\\scbd_field\\": "src/"
+    },
+    "files": [
+      "scbd_field.install"
+    ]
   },
   "suggest": {
     "ext-pcov": "For faster code coverage (optional, otherwise Xdebug can be used)",

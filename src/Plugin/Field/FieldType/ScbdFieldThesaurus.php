@@ -21,51 +21,51 @@ use Drupal\Core\TypedData\DataDefinition;
  */
 class ScbdFieldThesaurus extends FieldItemBase
 {
-  /**
-   * {@inheritdoc}
-   */
+    /**
+     * {@inheritdoc}
+     */
     public static function schema(FieldStorageDefinitionInterface $field_definition)
     {
         return [
-        'columns' => [
-        'value' => [
-          'type' => 'text',
-          'size' => 'big',
-          'not null' => false,
-        ],
-        'value2' => [
-          'type' => 'text',
-          'size' => 'big',
-          'not null' => false,
-        ],
-        ],
+            'columns' => [
+                'value' => [
+                    'type' => 'text',
+                    'size' => 'big',
+                    'not null' => false,
+                ],
+                'value2' => [
+                    'type' => 'text',
+                    'size' => 'big',
+                    'not null' => false,
+                ],
+            ],
         ];
     }
 
-  /**
-   * {@inheritdoc}
-   */
+    /**
+     * {@inheritdoc}
+     */
     public function isEmpty()
     {
         $value = $this->get('value')->getValue();
         $value2 = $this->get('value2')->getValue();
         $empty1 = $value === null || $value === '';
         $empty2 = $value2 === null || $value2 === '';
+
         return $empty1 && $empty2;
     }
 
-  /**
-   * {@inheritdoc}
-   */
+    /**
+     * {@inheritdoc}
+     */
     public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition)
     {
         $properties['value'] = DataDefinition::create('string')
-        ->setLabel(t('Value'));
+            ->setLabel(t('Value'));
 
         $properties['value2'] = DataDefinition::create('string')
-        ->setLabel(t('Value 2'));
+            ->setLabel(t('Value 2'));
 
         return $properties;
     }
-
 }

@@ -121,14 +121,18 @@ class ScbdFieldSettingsForm extends ConfigFormBase
         $form['auto_settings']['disable_auto_gbf17'] = [
             '#type' => 'checkbox',
             '#title' => $this->t('Disable auto-add GBF Target 17'),
-            '#description' => $this->t('When unchecked (default), GBF Target 17 will automatically be added on biosafety sites.'),
+            '#description' => $this->t(
+                'When unchecked (default), GBF Target 17 will automatically be added on biosafety sites.'
+            ),
             '#default_value' => $config->get('disable_auto_gbf17') ?: false,
         ];
 
         $form['auto_settings']['disable_auto_countries'] = [
             '#type' => 'checkbox',
             '#title' => $this->t('Disable auto-add countries'),
-            '#description' => $this->t('When unchecked (default), countries from bioland.settings will automatically be added to the field.'),
+            '#description' => $this->t(
+                'When unchecked (default), countries from bioland.settings will automatically be added to the field.'
+            ),
             '#default_value' => $config->get('disable_auto_countries') ?: false,
         ];
 
@@ -151,7 +155,9 @@ class ScbdFieldSettingsForm extends ConfigFormBase
             '#type' => 'textarea',
             '#title' => $this->t('Domain Order'),
             '#default_value' => implode("\n", $domain_order),
-            '#description' => $this->t('Enter one domain ID per line to specify display order. All listed domains will be available.'),
+            '#description' => $this->t(
+                'Enter one domain ID per line to specify display order. All listed domains will be available.'
+            ),
             '#rows' => 10,
         ];
 
