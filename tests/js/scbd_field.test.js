@@ -77,4 +77,32 @@ describe('scbd_field.js', () => {
       additionalFieldName: 'tags'
     }));
   });
+
+  test('mountVueApp merges auto-added values with initial values', () => {
+    const mountMock = jest.fn();
+    const createAppMock = jest.fn((_Comp, _props) => ({ mount: mountMock }));
+    global.Vue = { createApp: createAppMock };
+    global.ScbdDrupalScbdFieldJs = { default: {} };
+    global.console.log = jest.fn();
+
+    document.body.innerHTML = '<div id="scbd-field-thesaurus-tags"></div>';
+
+    mountVueApp({
+      name: 'tags',
+      fullFieldName: 'field_tags',
+      description: 'desc',
+      countries: ['be'],
+      locale: 'en',
+      locales: ['en'],
+      domains: ['gbfTargets', 'countries'],
+      initialValue: 'ABC,GBF-TARGET-17',
+      initialValue2: '',
+      autoAddValues: ['GBF-TARGET-17', 'COUNTRY-XYZ'],
+    });
+
+    expect(createAppMock).toHaveBeenCalledWith({}, expect.objectContaining({
+      initialValue: 'ABC,GBF-TARGET-17,COUNTRY-XYZ'
+    }));
+    expect(mountMock).toHaveBeenCalled();
+  });
 });

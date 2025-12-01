@@ -34,6 +34,8 @@ class ScbdThesaurusWidget extends WidgetBase
         $value2 = $items[$delta]->value2 ?? '';
         $field_name = str_replace('field_', '', strtolower($this->fieldDefinition->getName()));
         $full_field_name = strtolower($this->fieldDefinition->getName());
+        $entity = $items->getEntity();
+        $is_new_entity = $entity ? $entity->isNew() : false;
         
         // Get countries from bioland.settings
         $bioland_config = \Drupal::config('bioland.settings');
@@ -71,7 +73,7 @@ class ScbdThesaurusWidget extends WidgetBase
 
         // Calculate auto-add values for initial render
         $auto_add_values = [];
-        if ($is_biosafety) {
+        if ($is_biosafety && $is_new_entity) {
             // Collect all existing values from all field items
             $existing_values = [];
             foreach ($items as $item) {
@@ -82,8 +84,8 @@ class ScbdThesaurusWidget extends WidgetBase
             }
             $existing_values = array_unique($existing_values);
             
-            // Add GBF Target 17 if not already present (always when is_biosafety is true)
-            if (!in_array('GBF-TARGET-17', $existing_values)) {
+            // Add GBF Target 17 if not already present and auto-add is enabled.
+            if (!$disable_auto_gbf17 && !in_array('GBF-TARGET-17', $existing_values)) {
                 $auto_add_values[] = 'GBF-TARGET-17';
             }
             
