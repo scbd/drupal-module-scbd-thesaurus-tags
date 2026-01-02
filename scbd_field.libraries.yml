@@ -12,22 +12,22 @@ vue:
       https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css: {}
 
 thesaurus:
-  version: 2.0.3
+  version: 2.0.5
   css:
     theme:
-      js/vue-field/index.min.js.css: {}
+      js/vue-field/index.min-2-0-5.js.css: {}
   js:
-    js/vue-field/index.min.js.iife.js: {}
-    scbd_field.js: {}
+    js/vue-field/index.min-2-0-5.js.iife.js: {}
+    scbd_field-2-0-5.js: {}
   dependencies:
     - scbd_field/vue
     - core/jquery
     - core/drupalSettings
 
 settings_form:
-  version: 2.0.3
+  version: 2.0.5
   js:
-    js/settings_form.js: {}
+    js/settings_form-2-0-5.js: {}
   dependencies:
     - core/jquery
     - core/drupal

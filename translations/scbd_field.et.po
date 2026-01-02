@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "Globaalsed bioloogilise mitmekesisuse"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "Riiklikud bioloogilise mitmekesisuse eesmärgid (filtreeritud riikide kaupa)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "Säästva arengu eesmärgid"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "Riigid"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "Temaatilised valdkondad/teemad"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "Bioloogilise ohutuse temaatilised valdkonnad"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "Bioloogilise ohutuse temaatilised piirkonnarühmad"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "Geograafilised piirkonnad"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "Ökosüsteemi tüübid"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "Silumisrežiim"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "Kuva silumise eesmärgil peidetud sisestusväljad."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "Automaatsed väärtuse seaded"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "Konfigureerige väljaväärtuste automaatne populatsioon."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "Keela GBF Target 17 automaatne lisamine"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "Kui see pole märgitud (vaikimisi), lisatakse GBF Target 17 automaatselt bioohutuse saitidele."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "Keela riikide automaatne lisamine"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "Kui see pole märgitud (vaikimisi), lisatakse väljale automaatselt riigid saidilt bioland.settings."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "Domeeni konfiguratsioon"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "Kõik domeenid on saadaval. Konfigureerige nende kuvamise järjekord allpool."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "Saadaval domeenid"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "Kõigi domeeniklahvide ja nende kuvatavate nimede viiteloend."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "Domeeni tellimus"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "Kuvamisjärjekorra määramiseks sisestage üks domeeni ID rea kohta. Kõik loetletud domeenid on saadaval."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "Vale domeeni ID: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "Sildid"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "Uuendatud scbd_field_thesauruse kardinaalsus piiramatuks."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "Laiendatud komadega eraldatud loendid deltadeks scbd_field_thesauruse jaoks."

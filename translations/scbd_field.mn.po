@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: mn\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "Дэлхийн биологийн олон янз байдлын хүрээний зорилтууд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "Үндэсний биологийн олон янз байдлын зорилтууд (улс орноор шүүнэ)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "Тогтвортой хөгжлийн зорилтууд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "Улс орнууд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "Сэдэвчилсэн талбарууд/сэдвүүд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "Биоаюулгүй байдлын сэдэвчилсэн газрууд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "Биоаюулгүй байдлын сэдэвчилсэн бүсийн бүлгүүд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "Газарзүйн бүс нутаг"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "Экосистемийн төрлүүд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "Дибаг хийх горим"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "Дибаг хийх зорилгоор далд оролтын талбаруудыг харуул."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "Автомат утгын тохиргоо"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "Талбарын утгын автомат популяцийг тохируулах."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "GBF Зорилтот 17-ыг автоматаар нэмэхийг идэвхгүй болгох"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "Шалгаагүй үед (анхдагч), GBF Зорилтот 17 автоматаар биоаюулгүй байдлын сайтууд дээр нэмэгдэх болно."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "Автоматаар нэмэх орнуудыг идэвхгүй болгох"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "Шалгаагүй (анхдагч) үед bioland.settings-ээс улсууд автоматаар талбарт нэмэгдэх болно."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "Домэйн тохиргоо"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "Бүх домэйнууд боломжтой. Тэдний дэлгэцийн дарааллыг доор тохируулна уу."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "Боломжит домайнууд"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "Бүх домэйн түлхүүрүүд болон тэдгээрийн дэлгэцийн нэрсийн лавлагааны жагсаалт."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "Домэйн захиалга"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "Дэлгэцийн дарааллыг заахын тулд мөрөнд нэг домэйн ID оруулна уу. Бүх жагсаасан домэйнууд бэлэн болно."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "Хүчин төгөлдөр бус домэйн ID: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "Сэдвүүд"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "scbd_field_thesaurus кардиналийг хязгааргүй болгон шинэчилсэн."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "scbd_field_thesaurus-д зориулж deltas болгон таслалаар тусгаарлагдсан жагсаалтыг өргөтгөсөн."

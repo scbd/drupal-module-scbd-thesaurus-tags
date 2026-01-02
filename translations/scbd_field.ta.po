@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "உலகளாவிய பல்லுயிர்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "தேசிய பல்லுயிர் இலக்குகள் (நாடு வாசனால்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "நிலையான வளர்ச்சி இலக்குகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "நாடுகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "கருப்பொருள்கள்/பாடங்கள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "உயிரியல் பாதுகாப்பு கருப்பொருள் பகுதிகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "உயிரியல் பாதுகாப்பு கருப்பொருள் பகுதி குழுக்கள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "புவியியல் பகுதிகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "சூழல் அமைப்பு வகைகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "பிழைத்திருத்தம் பயன்முறை"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "பிழைத்திருத்த நோக்கங்களுக்காக மறைக்கப்பட்ட உள்ளீட்டு புலங்களைக் காட்டு"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "தானி மதிப்பு அமைப்புகள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "கள மதிப்புகளின் தானியங்கி மக்களை உள்ளமைக்கவும்."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "GBF இலக்கு 17 ஐ தானாகச் சேர்ப்பதை முடக்கு"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "சரிபார்க்கப்படாதபோது (இயல்புநிலை), ஜிபிஎஃப் இலக்கு 17 தானாகவே உயிரியல் பாதுகாப்பு தளங்களில் சேர்க்கப்படும்."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "தானாகவே சேர்க்கும் நாடுகளை முடக்கு"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "சரிபார்க்கப்படாதபோது (இயல்புநிலை), bioland.settings இலிருந்து நாடுகள் தானாகவே புலத்தில் சேர்க்கப்படும்."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "டொமைன் அமைப்பு"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "அனைத்து டொமைன்களும் கிடைக்கின்றன. அவற்றின் காட்சி வரிசையை கீழே உள்ளமைக்க"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "கிடைக்கக்கூடிய களங்கள்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "அனைத்து டொமைன் விசைகளின் குறிப்பு பட்டியல் மற்றும் அவற்றின் காட்சி பெயர்கள்."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "டொமேன் ஆர்டர்"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "காட்சி வரிசையைக் குறிப்பிடுவதற்கு ஒரு வரிக்கு ஒரு டொமைன் ஐடியை பட்டியலிடப்பட்ட அனைத்து டொமைன்களும் கிடைக்கும்."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "தவறான டொமைன் ஐடி: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "குறிச்சொற்கள்"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "SCBD_FIELD_THESAURUS கார்டினாலிட்டி வரம்பற்றதாக புதுப்பிக்கப்பட்டது."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "scbd_field_thesaurus க்கான டெல்டாக்களாக காமி பிரிக்கப்பட்ட பட்டியல்களை விரிவாக்கப்பட்டது."

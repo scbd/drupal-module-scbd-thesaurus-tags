@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cy\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "Targedau Fframwaith Bioamrywiaeth Byd-eang"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "Targedau Bioamrywiaeth Cenedlaethol (wedi'i hidlo yn ôl gwlad)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "Nodau Datblygu Cynaliadwy"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "Gwledydd"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "Meysydd Thematig/Pynciau"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "Ardaloedd Thematig Bioddiogelwch"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "Grwpiau Ardal Thematig Bioddiogelwch"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "Rhanbarthau Daearyddol"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "Mathau Ecosystem"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "Modd dadfygio"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "Dangoswch y meysydd mewnbwn cudd at ddibenion dadfygio."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "Gosodiadau Gwerth Awtomatig"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "Ffurfweddu poblogaeth awtomatig o werthoedd maes."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "Analluoga auto-ychwanegu GBF Targed 17"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "Pan heb ei wirio (diofyn), bydd GBF Targed 17 yn cael ei ychwanegu'n awtomatig ar safleoedd bioddiogelwch."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "Analluogi gwledydd ychwanegu awtomatig"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "Pan heb ei wirio (diofyn), bydd gwledydd o bioland.settings yn cael eu hychwanegu'n awtomatig at y maes."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "Ffurfweddiad Parth"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "Mae'r holl barthau ar gael. Ffurfweddu eu trefn arddangos isod."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "Parthau sydd ar gael"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "Rhestr gyfeirio o'r holl allweddi parth a'u henwau arddangos."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "Gorchymyn Parth"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "Rhowch un ID parth fesul llinell i nodi trefn arddangos. Bydd yr holl barthau rhestredig ar gael."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "ID parth annilys: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "Tagiau"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "Diweddarwyd cardinality scbd_field_thesaurus i ddiderfyn."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "Rhestrau wedi'u gwahanu gan coma estynedig yn deltas ar gyfer scbd_field_thesaurus."

@@ -155,6 +155,27 @@ function mountVueApp ({ name, fullFieldName, description, countries, locale, loc
       console.log('SCBD Field Widget - Auto-added values:', valuesToAdd, 'Merged value:', mergedValue);
     }
   }
+
+  // Ensure the underlying hidden text field reflects the merged value so that
+  // it is saved correctly even if the Vue component does not immediately
+  // sync the value on mount.
+  if (fullFieldName && mergedValue) {
+    // Example: fullFieldName = "field_tags" -> data-drupal-selector
+    // "edit-field-tags-0-value" on node forms.
+    const sanitizedFieldName = fullFieldName.replace(/_/g, '-');
+    const hiddenSelector = `[data-drupal-selector="edit-${sanitizedFieldName}-0-value"]`;
+    const hiddenField = document.querySelector(hiddenSelector);
+
+    if (hiddenField) {
+      hiddenField.value = mergedValue;
+      console.log('SCBD Field Widget - Synced hidden field value:', {
+        selector: hiddenSelector,
+        value: mergedValue
+      });
+    } else {
+      console.warn('SCBD Field Widget - Hidden field not found for selector:', hiddenSelector);
+    }
+  }
   
   // Mount single app with all domains in their configured order
   const anApp = createApp(App, { 

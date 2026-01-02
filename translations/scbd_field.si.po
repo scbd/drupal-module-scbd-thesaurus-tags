@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: si\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "ගෝලීය ජෛව විවිධත්වයේ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "ජාතික ජෛව විවිධත්ව ඉලක්ක (රට අනුව පෙරා)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "තිරසාර සංවර්ධන ඉලක්ක"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "රටවල්"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "තේමාත්මක ක්ෂේත්රය/විෂයන්"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "ජෛව ආරක්ෂණ තේමාත්මක ප්රදේශ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "ජෛව ආරක්ෂණ තේමාත්මක ප්රදේශ කණ්ඩායම්"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "භූගෝලීය කලාප"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "පරිසර පද්ධති වර්ග"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "නිදොස් කිරීමේ මාදිලිය"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "නිදොස් කිරීමේ අරමුණු සඳහා සැඟවුණු ආදාන ක්ෂේත්ර පෙන්වන්න."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "ස්වයංක්රීය අගය සැකසුම්"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "ක්ෂේත්ර අගවල ස්වයංක්රීය ජනගහනය වින්යාස කරන්න"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "GBF ඉලක්කය 17 ස්වයංක්රීයව එකතු කිරීම අක්රිය"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "පරීක්ෂා නොකළ විට (පෙරනිමි), GBF ඉලක්කය 17 ස්වයංක්රීයව ජෛව ආරක්ෂිත අඩවි මත එකතු කරනු ඇත."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "රටවල් ස්වයංක්රීයව එකතු කිරීම අ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "පරීක්ෂා නොකළ විට (පෙරනිමි), bioland.settings වෙතින් රටවල් ස්වයංක්රීයව ක්ෂේත්රයට එකතු කරනු ඇත."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "වසම් වින්යාසය"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "සියලුම වසම් ලබා ගත හැකිය. ඔවුන්ගේ දර්ශන අනුපිළිවෙල පහත වින්යාස කරන්න."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "ලබා ගත හැකි වසම්"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "සියලුම ඩොමේන් යතුරු සහ ඒවායේ දර්ශන නාමවල යොමු ලැයිස්තුව."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "ඩොමේන් ඇණවුම"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "දර්ශන අනුපිළිවෙල නියම කිරීම සඳහා පේලියකට එක් ඩොමේන් හැඳුනුම්පතක් ඇතුළත් කරන්න සියලුම ලැයිස්තුගත වසම් ලබා ගත හැකිය."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "අවලංගු වසම් හැඳුනුම්පත: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "ටැග්"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "scbd_field_thesaurus කාර්ඩිනලිටි අසීමිත ලෙස යාවත්කාලීන කරන ලදී."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "scbd_field_thesaurus සඳහා ඩෙල්ටාස් බවට කොමා-වෙන් කරන ලද ලැයිස්තු පුළුල් කරන ලදී."

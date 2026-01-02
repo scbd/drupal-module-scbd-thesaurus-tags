@@ -1,12 +1,12 @@
 /** @jest-environment jsdom */
 
-// Provide the globals expected by scbd_field.js when it runs in the browser.
+// Provide the globals expected by scbd_field-2-0-5.js when it runs in the browser.
 global.jQuery = {};
 global.Drupal = { behaviors: {} };
 
-const { mountVueApp, hideTextFormat } = require('../../scbd_field.js');
+const { mountVueApp, hideTextFormat } = require('../../scbd_field-2-0-5.js');
 
-describe('scbd_field.js', () => {
+describe('scbd_field-2-0-5.js', () => {
   test('hideTextFormat hides label and help link when present', () => {
     document.body.innerHTML = `
       <label for="edit-body-0-format--2">Format</label>
@@ -84,8 +84,15 @@ describe('scbd_field.js', () => {
     global.Vue = { createApp: createAppMock };
     global.ScbdDrupalScbdFieldJs = { default: {} };
     global.console.log = jest.fn();
+    global.console.warn = jest.fn();
 
-    document.body.innerHTML = '<div id="scbd-field-thesaurus-tags"></div>';
+    document.body.innerHTML = [
+      '<input ' +
+        'type="text" ' +
+        'data-drupal-selector="edit-field-tags-0-value" ' +
+        'value="" />',
+      '<div id="scbd-field-thesaurus-tags"></div>'
+    ].join('');
 
     mountVueApp({
       name: 'tags',
@@ -104,5 +111,10 @@ describe('scbd_field.js', () => {
       initialValue: 'ABC,GBF-TARGET-17,COUNTRY-XYZ'
     }));
     expect(mountMock).toHaveBeenCalled();
+
+    // Hidden field value should be synchronised with the merged value so that
+    // it is correctly submitted with the form.
+    const hiddenField = document.querySelector('[data-drupal-selector="edit-field-tags-0-value"]');
+    expect(hiddenField.value).toBe('ABC,GBF-TARGET-17,COUNTRY-XYZ');
   });
 });

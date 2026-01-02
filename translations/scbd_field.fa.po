@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "اهداف چارچوب جهانی تنوع زیستی"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "اهداف ملی تنوع زیستی (فیلتر شده بر اساس کشور)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "اهداف توسعه پایدار"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "کشورها"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "حوزه های موضوعی/موضوعات"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "حوزه های موضوعی ایمنی زیستی"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "گروه های حوزه موضوعی ایمنی زیستی"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "مناطق جغرافیایی"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "انواع اکوسیستم"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "حالت اشکال زدایی"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "فیلدهای ورودی پنهان را برای اهداف اشکال زدایی نشان دهید."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "تنظیمات ارزش خودکار"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "پیکربندی جمعیت خودکار مقادیر فیلد."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "غیر فعال کردن خودکار اضافه کردن هدف GBF 17"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "هنگامی که علامت گذاری نشده است (به طور پیش فرض)، GBF Target 17 به طور خودکار در سایت های ایمنی زیستی اضافه می شود."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "کشورهای افزودن خودکار را غیرفعال کنید"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "هنگامی که علامت گذاری نشده است (به طور پیش فرض)، کشورهایی از bioland.settings به طور خودکار به فیلد اضافه می شوند."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "پیکربندی دامنه"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "تمام دامنه ها در دسترس هستند. ترتیب نمایش آنها را در زیر پیکربندی کنید."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "دامنه های موجود"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "لیست مرجع کلیدهای دامنه و نام نمایش آنها."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "سفارش دامنه"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "برای مشخص کردن ترتیب نمایش یک شناسه دامنه در هر خط وارد کنید. تمام دامنه های ذکر شده در دسترس خواهند بود."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "شناسه دامنه نامعتبر: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "برچسب ها"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "کاردینالیته scbd_field_thesaurus را به نامحدود بروزرسانی کرد."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "لیست های جدا شده با کاما به دلتاها برای scbd_field_thesaurus گسترش یافته است."

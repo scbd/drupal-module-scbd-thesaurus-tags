@@ -69,6 +69,7 @@
 node_modules
 coverage/
 build/coverage-php/
+.phpunit.result.cache
 .github/instructions*
 .env
 .env*

@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ml\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "ആഗോള ജൈവവൈവിധ്യ ഫ്രെയിം"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "ദേശീയ ജൈവവൈവിധ്യ ലക്ഷ്യങ്ങൾ (രാജ്യം അനുസരിച്ച് ഫിൽട്ടർ ചെയ്തിരിക്കുന്നു)"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "സുസ്ഥിര വികസന ലക്ഷ്യങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "രാജ്യങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "തീമാറ്റിക് മേഖലകൾ/വിഷയങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "ബയോസേഫ്റ്റി തീമാറ്റിക് ഏരിയകൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "ബയോസേഫ്റ്റി തീമാറ്റിക് ഏരിയ ഗ്രൂപ്പുകൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "ഭൂമിശാസ്ത്രപരമായ പ്രദേശങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "ഇക്കോസിസ്റ്റം തരങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "ഡീബഗ് മോഡ്"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "ഡീബഗ്ഗിംഗ് ആവശ്യങ്ങൾക്കായി മറഞ്ഞിരിക്കുന്ന ഇൻപുട്ട് ഫീൽഡുകൾ കാണിക്കുക."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "യാന്ത്രിക മൂല്യ ക്രമീകരണങ്ങൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "ഫീൽഡ് മൂല്യങ്ങളുടെ യാന്ത്രിക ജനസംഖ്യ ക്രമീകരിക്കുക."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "GBF ടാർഗെറ്റ് 17 ഓട്ടോ-ചേർക്കുക പ്രവർത്തനരഹിതമാക്കുക"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "ചെക്ക് ചെയ്യാത്തപ്പോൾ (സ്ഥിരസ്ഥിതി), ജിബിഎഫ് ടാർഗെറ്റ് 17 യാന്ത്രികമായി ജൈവസുരക്ഷാ സൈറ്റുകളിൽ ചേർക്കപ്പെടും."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "ഓട്ടോ-ആഡ് രാജ്യങ്ങൾ പ്രവർത്തനരഹിതമാക്കുക"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "അൺചെക്ക് ചെയ്യുമ്പോൾ (സ്ഥിരസ്ഥിതി), bioland.settings- ൽ നിന്നുള്ള രാജ്യങ്ങൾ സ്വയമേവ ഫീൽഡിലേക്ക് ചേർക്കപ്പെടും."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "ഡൊമെയ്ൻ ക്രമീകരണം"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "എല്ലാ ഡൊമെയ്നുകളും ലഭ്യമാണ്. ചുവടെ അവരുടെ ഡിസ്പ്ലേ ഓർഡർ കോൺഫിഗർ ചെയ്യുക."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "ലഭ്യമായ ഡൊമൈനുകൾ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "എല്ലാ ഡൊമെയ്ൻ കീകളുടെയും അവയുടെ പ്രദർശന പേരുകളുടെയും റഫറൻസ് ലിസ്റ്റ്."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "ഡൊമെയ്ൻ ക്രമം"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "ഡിസ്പ്ലേ ഓർഡർ വ്യക്തമാക്കാൻ ഓരോ വരിയിലും ഒരു ഡൊമെയ്ൻ ഐഡി നൽകുക. ലിസ്റ്റുചെയ്ത എല്ലാ ഡൊമെയ്നുകളും ലഭ്യമാകും."
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "അസാധുവായ ഡൊമെയ്ൻ ഐഡി: @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "ടാഗുകൾ"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "സ്ച്ബ്ദ്_ഫീൽഡ്_തെസറസ് കർദ്ദിനാലിറ്റി പരിധിയില്ലാത്തതിലേക്ക് അപ്ഡേറ്റുചെയ്തു."
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "scbd_field_thesaurus എന്നതിനായുള്ള ഡെൽറ്റകളിലേക്ക് കോമ-വേർതിരിച്ച ലിസ്റ്റുകൾ വിപുലീകരിച്ചു."

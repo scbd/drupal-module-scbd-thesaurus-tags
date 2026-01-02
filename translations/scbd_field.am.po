@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: scbd_field 1.0\n"
+"POT-Creation-Date: 2025-08-09 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: am\n"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Global Biodiversity Framework Targets"
+msgstr "ዓለም አቀፍ የባህሪ ዝርዝር ማ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "National Biodiversity Targets (filtered by country)"
+msgstr "ብሔራዊ የባህሪ ልዩነት ኢላማዎች (በአገር የተጣሩ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Sustainable Development Goals"
+msgstr "ዘላቂ የልማት ግቦች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Countries"
+msgstr "አገሮች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Thematic Areas/Subjects"
+msgstr "ጭብጥ ቦታዎች/ርዕሶ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Areas"
+msgstr "የባዮሴክሪቲ የትምህርት ቦታዎች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Biosafety Thematic Area Groups"
+msgstr "የባዮሴክሪቲ የቴክቲክ አካባቢ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Geographic Regions"
+msgstr "ጂኦግራፊክ ክልሎች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Ecosystem Types"
+msgstr "የሥርዓተ ምህዳ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Debug mode"
+msgstr "የማረም ሁነታ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Show the hidden input fields for debugging purposes."
+msgstr "ለማረም ዓላማዎች የተደበቁ የግብዓት መስኮችን ያሳዩ።"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Automatic Value Settings"
+msgstr "ራስ-ሰር የእሴት"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Configure automatic population of field values."
+msgstr "የመስክ እሴቶችን አውቶማቲክ ህዝብ ያዋ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add GBF Target 17"
+msgstr "GBF ኢላማ 17 በራስ-ማከል ያሰናክሉ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), GBF Target 17 will automatically be added on biosafety sites."
+msgstr "ያልተረጋገጠ ጊዜ (ነባሪ)፣ GBF Target 17 በባዮሴክሪቲ ጣቢያዎች ላይ በራስ-ሰር ይታክላል።"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Disable auto-add countries"
+msgstr "አገሮችን ራስ-ማከል ያሰና"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "When unchecked (default), countries from bioland.settings will automatically be added to the field."
+msgstr "(ነባሪ) ያልተረጋገጠ ጊዜ ከbioland.settings ያሉ አገሮች በራስ-ሰር ወደ መስኩ ይጨምራሉ።"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Configuration"
+msgstr "የጎራ ውቅር"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "All domains are available. Configure their display order below."
+msgstr "ሁሉም ጎራዎች ይገኛሉ። የማሳያ ቅደም ተከተላቸውን ከዚህ በታች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Available Domains"
+msgstr "የሚገኙ ጎራዎች"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Reference list of all domain keys and their display names."
+msgstr "የሁሉም ጎራ ቁልፎች ማጣቀሻ ዝርዝር እና የማሳያ ስማቸው።"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Domain Order"
+msgstr "የጎራ ትዕዛዝ"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Enter one domain ID per line to specify display order. All listed domains will be available."
+msgstr "የማሳያ ቅደም ተከተል ለመግለጽ በአንድ መስመር አንድ ጎራ መታወቂያ ሁሉም የተዘረዘሩት ጎራዎች ይገኛሉ።"
+
+#: src/Form/ScbdFieldSettingsForm.php
+msgid "Invalid domain ID: @domain"
+msgstr "ልክ ያልሆነ የጎራ መታወቂያ @domain"
+
+#: src/Plugin/Field/FieldWidget/ScbdThesaurusWidget.php:40
+msgid "Tags"
+msgstr "መለያዎች"
+
+#: scbd_field.install:21
+msgid "Updated scbd_field_thesaurus cardinality to unlimited."
+msgstr "SCBD_FIELD_THESAURUS ካርዲናልነት ያልተገደበ ድረስ ተዘምኗል።"
+
+#: scbd_field.install:29
+msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
+msgstr "ለscbd_field_thesaurus የኮማ የተለዩ ዝርዝሮችን ወደ ዴልታዎች የተስፋፉ።"
