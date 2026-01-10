@@ -384,3 +384,61 @@ function scbd_field_update_9007() {
   $count = _scbd_field_remove_stale_formatter();
   return t('Removed @count stale scbd_field_simple_text formatter references from entity view displays.', ['@count' => $count]);
 }
+
+/**
+ * Update: Add field_tags_value2 column if missing and clean up field storage config.
+ */
+function scbd_field_update_9008() {
+  $messages = [];
+  $connection = \Drupal::database();
+  $schema = $connection->schema();
+
+  // List of tables that should have field_tags_value2 column.
+  $tables_to_check = [
+    'comment__field_tags',
+    'comment_revision__field_tags',
+    'node__field_tags',
+    'node_revision__field_tags',
+  ];
+
+  // Add field_tags_value2 column if it does not exist.
+  foreach ($tables_to_check as $table) {
+    if ($schema->tableExists($table) && !$schema->fieldExists($table, 'field_tags_value2')) {
+      $schema->addField($table, 'field_tags_value2', [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+        'description' => 'Secondary value for field_tags.',
+      ]);
+      $messages[] = t('Added field_tags_value2 column to @table.', ['@table' => $table]);
+    }
+  }
+
+  // Clean up comment.field_tags field storage config if it exists.
+  $field_storage = \Drupal\field\Entity\FieldStorageConfig::load('comment.field_tags');
+  if ($field_storage) {
+    // Remove any stale field_storage_submit property.
+    if (isset($field_storage->field_storage_submit)) {
+      unset($field_storage->field_storage_submit);
+      $field_storage->save();
+      $messages[] = t('Cleaned up comment.field_tags field storage configuration.');
+    }
+  }
+
+  // Clean up node.field_tags field storage config if it exists.
+  $node_field_storage = \Drupal\field\Entity\FieldStorageConfig::load('node.field_tags');
+  if ($node_field_storage) {
+    // Remove any stale field_storage_submit property.
+    if (isset($node_field_storage->field_storage_submit)) {
+      unset($node_field_storage->field_storage_submit);
+      $node_field_storage->save();
+      $messages[] = t('Cleaned up node.field_tags field storage configuration.');
+    }
+  }
+
+  if (empty($messages)) {
+    return t('No field_tags_value2 columns needed to be added or field storage cleanup needed.');
+  }
+
+  return implode(' ', $messages);
+}
