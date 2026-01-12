@@ -282,6 +282,13 @@ function scbd_field_install() {
   // Remove any stale scbd_field_simple_text formatter references.
   _scbd_field_remove_stale_formatter();
 
+  // Ensure database columns exist (safety check for fresh installs).
+  _scbd_field_ensure_database_columns();
+
+  // Synchronize field storage definitions to prevent entity/field mismatch.
+  // This ensures the installed schema matches the code definition.
+  _scbd_field_sync_field_storage_definitions();
+
   // Import provided translations (.po) bundled with the module, if locale
   // module is enabled. This ensures strings are available immediately.
   if (\Drupal::moduleHandler()->moduleExists('locale')) {
@@ -441,4 +448,251 @@ function scbd_field_update_9008() {
   }
 
   return implode(' ', $messages);
+}
+
+
+/**
+ * Update: Synchronize field_tags field storage definitions to fix entity/field mismatch.
+ *
+ * This update resolves the "Mismatched entity and/or field definitions" error
+ * by ensuring the installed field storage definition matches the current code
+ * definition. The issue occurs when the database schema has been updated but
+ * the "last installed schema" in key_value storage hasn't been synchronized.
+ */
+function scbd_field_update_9009() {
+  $messages = [];
+  
+  // Entity types that have field_tags.
+  $entity_types = ['node', 'comment'];
+  $field_name = 'field_tags';
+  
+  // Step 1: Ensure database columns exist (safety check).
+  $db_messages = _scbd_field_ensure_database_columns();
+  $messages = array_merge($messages, $db_messages);
+  
+  // Step 2: Update the installed field storage definitions using the shared helper.
+  $sync_messages = _scbd_field_sync_field_storage_definitions();
+  $messages = array_merge($messages, $sync_messages);
+
+  // Step 3: Verify no more mismatches
+  try {
+    $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+    $changes = $entity_definition_update_manager->getChangeList();
+    
+    // Filter for our field
+    $remaining_issues = [];
+    foreach ($changes as $entity_type => $entity_changes) {
+      if (in_array($entity_type, $entity_types)) {
+        if (isset($entity_changes['field_storage_definitions'][$field_name])) {
+          $remaining_issues[] = "{$entity_type}.{$field_name}";
+        }
+      }
+    }
+    
+    if (!empty($remaining_issues)) {
+      $messages[] = t('Warning: Some field definitions may still need attention: @fields', [
+        '@fields' => implode(', ', $remaining_issues),
+      ]);
+    }
+  } catch (\Exception $e) {
+    $messages[] = t('Warning: Could not verify changes: @error', ['@error' => $e->getMessage()]);
+  }
+  
+  if (empty($messages)) {
+    return t('Field storage definitions were already synchronized.');
+  }
+  
+  return implode(' ', $messages);
+}
+
+/**
+ * Helper function to force-sync field storage definitions.
+ *
+ * This is a comprehensive sync that handles all layers: database schema,
+ * config entities, and cached definitions. Can be called manually via
+ * drush php:eval or from hook_update.
+ *
+ * Usage: drush php:eval "_scbd_field_force_sync_field_definitions();"
+ *
+ * @return array
+ *   Array of log messages describing actions taken.
+ */
+function _scbd_field_force_sync_field_definitions(): array {
+  $messages = [];
+  $entity_types = ['node', 'comment'];
+  $field_name = 'field_tags';
+
+  // Step 1: Ensure database columns exist.
+  $db_messages = _scbd_field_ensure_database_columns();
+  $messages = array_merge($messages, $db_messages);
+
+  // Step 2: Sync config entities and key-value storage.
+  $sync_messages = _scbd_field_sync_field_storage_definitions();
+  $messages = array_merge($messages, $sync_messages);
+
+  // Step 3: Use entity definition update manager for any remaining changes.
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  foreach ($entity_types as $entity_type_id) {
+    $field_storage_id = "{$entity_type_id}.{$field_name}";
+
+    // Get current definitions from code.
+    $current_definitions = $entity_field_manager->getFieldStorageDefinitions($entity_type_id);
+
+    if (isset($current_definitions[$field_name])) {
+      $definition = $current_definitions[$field_name];
+
+      // Check if there's a mismatch.
+      $changes = $entity_definition_update_manager->getChangeList();
+
+      if (isset($changes[$entity_type_id]['field_storage_definitions'][$field_name])) {
+        $change_type = $changes[$entity_type_id]['field_storage_definitions'][$field_name];
+
+        $messages[] = t('Processing @field (change type: @type)', [
+          '@field' => $field_storage_id,
+          '@type' => $change_type,
+        ]);
+
+        // Use the entity definition update manager to apply the update.
+        if ($change_type == $entity_definition_update_manager::DEFINITION_UPDATED) {
+          $entity_definition_update_manager->updateFieldStorageDefinition($definition);
+          $messages[] = t('Updated field storage definition via entity definition update manager for @field.', [
+            '@field' => $field_storage_id,
+          ]);
+        }
+      } else {
+        $messages[] = t('No changes detected for @field.', [
+          '@field' => $field_storage_id,
+        ]);
+      }
+    }
+  }
+
+  // Clear caches.
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+  drupal_flush_all_caches();
+
+  if (empty($messages)) {
+    $messages[] = t('All field storage definitions are already synchronized.');
+  }
+
+  return $messages;
+}
+
+/**
+ * Ensure database columns exist for field_tags.
+ *
+ * Adds missing field_tags_value2 columns to data and revision tables.
+ * Safe to call multiple times (checks existence before adding).
+ *
+ * @return array
+ *   Array of messages describing actions taken.
+ */
+function _scbd_field_ensure_database_columns(): array {
+  $messages = [];
+  $connection = \Drupal::database();
+  $schema = $connection->schema();
+  $entity_types = ['node', 'comment'];
+  $field_name = 'field_tags';
+
+  foreach ($entity_types as $entity_type_id) {
+    $tables = [
+      "{$entity_type_id}__{$field_name}",
+      "{$entity_type_id}_revision__{$field_name}",
+    ];
+
+    foreach ($tables as $table) {
+      if ($schema->tableExists($table)) {
+        $value2_column = "{$field_name}_value2";
+        if (!$schema->fieldExists($table, $value2_column)) {
+          $schema->addField($table, $value2_column, [
+            'type' => 'text',
+            'size' => 'big',
+            'not null' => FALSE,
+            'description' => 'Secondary value for field_tags.',
+          ]);
+          $messages[] = t('Added @column to @table.', [
+            '@column' => $value2_column,
+            '@table' => $table,
+          ]);
+        }
+      }
+    }
+  }
+
+  return $messages;
+}
+
+/**
+ * Synchronize field storage definitions for scbd_field_thesaurus fields.
+ *
+ * Updates both the FieldStorageConfig entities AND the installed schema in
+ * key_value storage to match the current code definition. Safe to call on
+ * both install and update.
+ *
+ * @return array
+ *   Array of messages describing actions taken.
+ */
+function _scbd_field_sync_field_storage_definitions(): array {
+  $messages = [];
+  $entity_types = ['node', 'comment'];
+  $field_name = 'field_tags';
+
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  $key_value = \Drupal::keyValue('entity.definitions.installed');
+
+  foreach ($entity_types as $entity_type_id) {
+    $field_storage_id = "{$entity_type_id}.{$field_name}";
+
+    // Load the current field storage config entity.
+    $field_storage = \Drupal\field\Entity\FieldStorageConfig::load($field_storage_id);
+    if (!$field_storage) {
+      continue;
+    }
+
+    // Ensure the FieldStorageConfig entity has correct cardinality.
+    $needs_save = FALSE;
+    if ((int) $field_storage->getCardinality() !== 1) {
+      $field_storage->setCardinality(1);
+      $needs_save = TRUE;
+    }
+
+    // Remove any stale properties that shouldn't be in the config.
+    if (isset($field_storage->field_storage_submit)) {
+      unset($field_storage->field_storage_submit);
+      $needs_save = TRUE;
+    }
+
+    if ($needs_save) {
+      $field_storage->save();
+      $messages[] = t('Updated FieldStorageConfig entity for @field.', [
+        '@field' => $field_storage_id,
+      ]);
+    }
+
+    // Update the installed schema in key_value storage.
+    $stored_definitions = $key_value->get("{$entity_type_id}.field_storage_definitions");
+
+    if ($stored_definitions && isset($stored_definitions[$field_name])) {
+      // Get the current code definition.
+      $current_definitions = $entity_field_manager->getFieldStorageDefinitions($entity_type_id);
+
+      if (isset($current_definitions[$field_name])) {
+        // Replace the stored definition with the current one.
+        $stored_definitions[$field_name] = $current_definitions[$field_name];
+        $key_value->set("{$entity_type_id}.field_storage_definitions", $stored_definitions);
+        $messages[] = t('Updated installed field storage definition in key_value for @field.', [
+          '@field' => $field_storage_id,
+        ]);
+      }
+    }
+  }
+
+  // Clear relevant caches after updating definitions.
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+
+  return $messages;
 }

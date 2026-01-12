@@ -3,7 +3,7 @@ type: module
 description: Tag selector for SCBD Thesaurus.
 package: SCBD
 core_version_requirement: ^10 || ^11
-version: 2.0.7
+version: 2.0.8
 dependencies:
   - drupal:node
   - drupal:field
