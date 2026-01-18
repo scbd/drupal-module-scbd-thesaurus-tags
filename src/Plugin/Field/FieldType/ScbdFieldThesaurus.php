@@ -13,10 +13,9 @@ use Drupal\Core\TypedData\DataDefinition;
  *   id = "scbd_field_thesaurus",
  *   label = @Translation("SCBD Thesaurus"),
  *   description = @Translation("SCBD Thesaurus field."),
- *   category = @Translation("SCBD"),
- *   module = "scbd_field",
+ *   category = "general",
  *   default_widget = "scbd_thesaurus_widget",
- *   cardinality = 1,
+ *   default_formatter = "string"
  * )
  */
 class ScbdFieldThesaurus extends FieldItemBase
