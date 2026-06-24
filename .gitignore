@@ -75,3 +75,5 @@ build/coverage-php/
 .env*
 .github/instructions*
 !.github/instructions/workflow.md
+docs/.temp
+graphify-out

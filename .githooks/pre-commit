@@ -4,6 +4,17 @@
 #   git config core.hooksPath .githooks
 set -e
 
+# Secret scan on staged changes (block commit if any credential is detected).
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] Running gitleaks protect --staged"
+  if ! gitleaks protect --staged -v --redact --no-banner; then
+    echo "[pre-commit] gitleaks detected a potential secret. Commit aborted." >&2
+    exit 1
+  fi
+else
+  echo "[pre-commit] WARNING: gitleaks not installed; skipping secret scan. Install with: brew install gitleaks" >&2
+fi
+
 echo "[pre-commit] Running make ci (lint + tests)"
 if ! make ci; then
   echo "[pre-commit] CI checks failed. Commit aborted." >&2
