@@ -114,3 +114,14 @@ msgstr "ایس سی بی ڈی _فیلڈ_تھیسورس کارڈینلٹی کو �
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus کے لئے کوما سے الگ فہرستوں کو ڈیلٹا میں توسیع کردیا۔"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD فیلڈ کی ترتیبات"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD فیلڈ کی ترتیبات کو ترتیب دیں۔"
+
+

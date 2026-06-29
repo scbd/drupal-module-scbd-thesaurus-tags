@@ -114,3 +114,12 @@ msgstr "SCBD_FIELD_THESAURUS ካርዲናልነት ያልተገደበ ድረስ 
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "ለscbd_field_thesaurus የኮማ የተለዩ ዝርዝሮችን ወደ ዴልታዎች የተስፋፉ።"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD መስክ ቅንብራት"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD መስክ ቅንብራት ያስቀምጡ።"

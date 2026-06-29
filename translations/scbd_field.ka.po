@@ -114,3 +114,12 @@ msgstr "განახლებულია scbd_field_thesaurus კარდ�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "გაფართოებული ვარდებით გამოყოფილი სიები დელტებად scbd_field_thesaurus-ისთვის."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD ველის პარამეტრები"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD ველის პარამეტრების კონფიგურაცია."

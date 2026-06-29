@@ -114,3 +114,13 @@ msgstr "Päivitetty scbd_field_thesaurus kardinaalisuus rajoittamattomaksi."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Laajennetut pilkuilla erotetut luettelot deltaiksi scbd_field_thesaurukselle."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field -asetukset"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Määritä SCBD Field -asetuksia."
+

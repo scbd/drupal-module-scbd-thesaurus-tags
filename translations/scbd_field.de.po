@@ -114,3 +114,12 @@ msgstr "Die scbd_field_thesaurus-Kardinalität wurde auf unbegrenzt aktualisiert
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Durch Kommas getrennte Listen in Deltas für scbd_field_thesaurus erweitert."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD-Feldeinstellungen"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigurieren Sie die SCBD-Feldeinstellungen."

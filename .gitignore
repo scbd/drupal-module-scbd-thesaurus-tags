@@ -77,3 +77,4 @@ build/coverage-php/
 !.github/instructions/workflow.md
 docs/.temp
 graphify-out
+graphify-out-backups

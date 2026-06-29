@@ -114,3 +114,14 @@ msgstr "Оновлено кардинальність тезаурусу scbd_fi
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Розширені списки, розділені комами, у дельти для scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Параметри поля SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Налаштуйте параметри поля SCBD."
+
+

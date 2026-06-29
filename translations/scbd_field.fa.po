@@ -114,3 +114,13 @@ msgstr "کاردینالیته scbd_field_thesaurus را به نامحدود ب�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "لیست های جدا شده با کاما به دلتاها برای scbd_field_thesaurus گسترش یافته است."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "تنظیمات SCBD Field"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "تنظیم تنظیمات SCBD Field."
+

@@ -114,3 +114,14 @@ msgstr "อัปเดตความสำคัญของ scbd_field_thesau
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "ขยายรายการที่คั่นด้วยจุลภาคเป็นเดลตาสำหรับ scbd_field_thesaurus"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "การตั้งค่าฟิลด์ SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "กำหนดค่าการตั้งค่าฟิลด์ SCBD"
+
+

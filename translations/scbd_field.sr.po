@@ -114,3 +114,14 @@ msgstr "Ažurirana je kardinalnost scbd_field_thesaurus na neograničenu."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Proširene liste odvojene zarezima u delte za scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Postavke polja"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigurirajte postavke SCBD polja."
+
+

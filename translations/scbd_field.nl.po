@@ -114,3 +114,13 @@ msgstr "scbd_field_thesaurus cardinality bijgewerkt naar unlimited."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Door komma's gescheiden lijsten uitgebreid tot delta's voor scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD-veldinstellingen"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD-veldinstellingen configureren."
+

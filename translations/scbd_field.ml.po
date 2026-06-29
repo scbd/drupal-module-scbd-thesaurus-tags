@@ -114,3 +114,12 @@ msgstr "സ്ച്ബ്ദ്_ഫീൽഡ്_തെസറസ് കർദ്
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus എന്നതിനായുള്ള ഡെൽറ്റകളിലേക്ക് കോമ-വേർതിരിച്ച ലിസ്റ്റുകൾ വിപുലീകരിച്ചു."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD ഫീൽഡ് ക്രമീകരണങ്ങൾ"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD ഫീൽഡ് ക്രമീകരണങ്ങൾ ക്രമീകരിക്കുക."

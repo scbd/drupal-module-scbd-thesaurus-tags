@@ -114,3 +114,12 @@ msgstr "Dikemaskini scbd_field_thesaurus cardinality menjadi tidak terhad."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Senarai yang dipisahkan koma diperluas ke dalam delta untuk scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Tetapan Medan SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigurasikan tetapan medan SCBD."

@@ -114,3 +114,13 @@ msgstr "Uuendatud scbd_field_thesauruse kardinaalsus piiramatuks."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Laiendatud komadega eraldatud loendid deltadeks scbd_field_thesauruse jaoks."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field seaded"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Seadistage SCBD Field sätteid."
+

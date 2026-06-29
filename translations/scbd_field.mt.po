@@ -114,3 +114,13 @@ msgstr "Aġġornata tal-kardinalità scbd_field_thesaurus għal illimitata."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Listi estiżi separati bil-virgola f'deltas għal scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Setings tal-Qasam SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Ikkonfigura s-setings tal-qasam SCBD."
+

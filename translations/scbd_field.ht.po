@@ -114,3 +114,13 @@ msgstr "Mete ajou scbd_field_thesaurus kardinalite nan san limit."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Elaji lis koma-separe nan delta pou scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field Paramèt"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigure paramèt SCBD Field."
+

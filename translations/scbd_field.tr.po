@@ -114,3 +114,14 @@ msgstr "scbd_field_thesaurus kardinalitesini sınırsız olarak güncelledi."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus için virgülle ayrılmış listeler deltalara genişletildi."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Alan Ayarları"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD alan ayarlarını yapılandırın."
+
+

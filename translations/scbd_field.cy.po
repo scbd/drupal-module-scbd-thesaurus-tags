@@ -114,3 +114,12 @@ msgstr "Diweddarwyd cardinality scbd_field_thesaurus i ddiderfyn."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Rhestrau wedi'u gwahanu gan coma estynedig yn deltas ar gyfer scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Gosodiadau Maes SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Ffurfweddwch osodiadau maes SCBD."

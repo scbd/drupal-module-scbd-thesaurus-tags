@@ -114,3 +114,12 @@ msgstr "एससीबीडी_फील्ड_थेसॉरस कार्
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "एससीबीडी_फील्ड_थेसॉरससाठी डेल्टामध्ये विस्तारित कॉमा-विभाजित सूची"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD फील्ड सेटिंग्स"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD फील्ड सेटिंग्स कॉन्फिगर करा."

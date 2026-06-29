@@ -114,3 +114,14 @@ msgstr "Imesasishwa scbd_field_thesaurus cardinality hadi isiyo na kikomo."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Orodha zilizotengwa kwa koma iliyopanuliwa katika delta kwa scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Mipangilio ya Uwanja wa SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Sanidi mipangilio ya uwanja wa SCBD."
+
+

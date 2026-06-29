@@ -114,3 +114,12 @@ msgstr "SCBD_FIELD_THESAURUS কার্ডিনালিটি সীমা�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "SCBD_FIELD_THESAURUS-এর জন্য ডেল্টাতে কমা-পৃথক তালিকাগুলি প্রসারিত করা হয়েছে।"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD ফিল্ড সেটিংস"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD ফিল্ড সেটিংস কনফিগার করুন।"

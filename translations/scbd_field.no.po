@@ -114,3 +114,13 @@ msgstr "Oppdatert scbd_field_thesaurus kardinalitet til ubegrenset."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Utvidede kommaseparerte lister til deltaer for scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD-feltinnstillinger"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigurer SCBD-feltinnstillinger."
+

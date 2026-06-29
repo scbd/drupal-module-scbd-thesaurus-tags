@@ -114,3 +114,13 @@ msgstr "La soo cusboonayay scbd_field_thesaurus cardinality oo aan la'aan."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Balaaday liiska coma-kala kala galay deltas ee scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Xogal Goobta SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Kaydibi Xogal Goobta SCBD."
+

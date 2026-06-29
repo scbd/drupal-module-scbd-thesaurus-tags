@@ -101,7 +101,7 @@ class ScbdThesaurusWidget extends WidgetBase
 
         $classes = ['edit-scbd_field-thesaurus'];
         if (!$debug) {
-            $classes[] = 'hide';
+            $classes[] = 'hidden';
         }
 
         $element['value'] = [
@@ -139,7 +139,7 @@ class ScbdThesaurusWidget extends WidgetBase
         // Add a second field for value2.
         $classes2 = ['edit-scbd_field-thesaurus-additional'];
         if (!$debug) {
-            $classes2[] = 'hide';
+            $classes2[] = 'hidden';
         }
 
         $element['value2'] = [

@@ -114,3 +114,12 @@ msgstr "ಎಸ್ಸಿಬಿಡಿ_ಫೀಲ್ಡ್_ಥೆಸಾರಸ್ ಕ
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus ಗಾಗಿ ಡೆಲ್ಟಾಗಳಾಗಿ ಕಾಮಾ-ಬೇರ್ಪಡಿಸಿದ ಪಟ್ಟಿಗಳನ್ನು ವಿಸ್ತರಿಸಲಾಗಿದೆ."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD ಕ್ಷೇತ್ರ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD ಕ್ಷೇತ್ರ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ."

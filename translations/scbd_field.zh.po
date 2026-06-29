@@ -114,3 +114,14 @@ msgstr "将 scbd_field_thesaurus 基数更新为无限制。"
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "将 scbd_field_thesaurus 的逗号分隔列表扩展为增量。"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD字段设置"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "配置SCBD字段设置。"
+
+

@@ -114,3 +114,12 @@ msgstr "scbd_field_thesaurus カーディナリティを無制限に更新しま
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "カンマで区切られたリストを scbd_field_thesaurus のデルタに展開しました。"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD フィールド設定"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD フィールド設定を構成します。"

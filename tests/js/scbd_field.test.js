@@ -1,12 +1,12 @@
 /** @jest-environment jsdom */
 
-// Provide the globals expected by scbd_field-2-0-9.js when it runs in the browser.
+// Provide the globals expected by scbd_field-2-1-0.js when it runs in the browser.
 global.jQuery = {};
 global.Drupal = { behaviors: {} };
 
-const { mountVueApp, hideTextFormat } = require('../../scbd_field-2-0-9.js');
+const { mountVueApp, hideTextFormat } = require('../../scbd_field-2-1-0.js');
 
-describe('scbd_field-2-0-9.js', () => {
+describe('scbd_field-2-1-0.js', () => {
   test('hideTextFormat hides label and help link when present', () => {
     document.body.innerHTML = `
       <label for="edit-body-0-format--2">Format</label>

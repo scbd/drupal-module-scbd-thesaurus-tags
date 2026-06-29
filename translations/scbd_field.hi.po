@@ -114,3 +114,13 @@ msgstr "scbd_field_thesaurus कार्डिनैलिटी को अस�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus के लिए अल्पविराम से अलग की गई सूचियों को डेल्टा में विस्तारित किया गया।"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field सेटिंग्स"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD Field सेटिंग्स कॉन्फ़िगर करें।"
+

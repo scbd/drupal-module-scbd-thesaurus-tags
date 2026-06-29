@@ -114,3 +114,12 @@ msgstr "Aktualizována kardinalita scbd_field_thesaurus na neomezenou."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Rozšířené seznamy oddělené čárkami do delty pro scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Nastavení pole SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Nakonfigurujte nastavení pole SCBD."

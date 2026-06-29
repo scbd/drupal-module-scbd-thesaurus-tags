@@ -114,3 +114,13 @@ msgstr "Թարմացվել է scbd_field_thesaurus կարդինալությու�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Ընդլայնված ստորակետերով առանձնացված ցուցակները դելտաների մեջ scbd_field_thesaurus- ի համար:"
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field Կարգավորումներ"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Կարգավորեք SCBD Field կարգավորումները։"
+

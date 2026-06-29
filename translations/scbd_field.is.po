@@ -114,3 +114,12 @@ msgstr "Uppfært scbd_field_thesaurus cardinality í ótakmarkað."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Stækkaðir kommuaðskildir listar í deltas fyrir scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD reitastillingar"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Stilla SCBD reitastillingar."

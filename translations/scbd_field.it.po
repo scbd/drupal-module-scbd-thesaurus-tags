@@ -114,3 +114,12 @@ msgstr "La cardinalità scbd_field_thesaurus è stata aggiornata a illimitata."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Elenchi separati da virgole espansi in delta per scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Impostazioni del campo SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Configura le impostazioni del campo SCBD."

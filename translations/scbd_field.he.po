@@ -114,3 +114,13 @@ msgstr "עדכון הקרדינליות של scbd_field_thesaurus ללא הגב�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "רשימות המופרדות בפסיקים מורחבות לדלתות עבור scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "הגדרות SCBD Field"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "קבע את הגדרות SCBD Field."
+

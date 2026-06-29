@@ -114,3 +114,12 @@ msgstr "Atnaujintas scbd_field_thesaurus kardinalumas iki neriboto."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Išplėsti kableliais atskirti sąrašai į deltas scbd_field_tesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD lauko nustatymai"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfigūruokite SCBD lauko nustatymus."

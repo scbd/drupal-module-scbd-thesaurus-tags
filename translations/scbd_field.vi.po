@@ -114,3 +114,14 @@ msgstr "Đã cập nhật tính năng scbd_field_thesaurus thành không giới 
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Các danh sách được phân tách bằng dấu phẩy mở rộng thành delta cho scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Cài đặt Trường SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Định cấu hình cài đặt trường SCBD."
+
+

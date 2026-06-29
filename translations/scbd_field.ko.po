@@ -114,3 +114,12 @@ msgstr "scbd_field_키워드 사전 카디널리티를 무제한으로 업데이
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus의 쉼표로 구분된 목록을 델타로 확장했습니다."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD 필드 설정"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD 필드 설정을 구성합니다."

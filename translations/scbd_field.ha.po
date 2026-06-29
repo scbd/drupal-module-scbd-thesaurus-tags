@@ -114,3 +114,13 @@ msgstr "An sabunta scbd_field_thesaurus cardinality zuwa mara iyaka."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Fadada jerin rabuwa da aka raba a cikin deltas don scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Field Saiti"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Saita saiti na SCBD Field."
+

@@ -114,3 +114,13 @@ msgstr "scbd_field_thesaurus කාර්ඩිනලිටි අසීමි�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus සඳහා ඩෙල්ටාස් බවට කොමා-වෙන් කරන ලද ලැයිස්තු පුළුල් කරන ලදී."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD ක්ෂේත්ර සැකසුම්"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD ක්ෂේත්ර සැකසුම් වින්යාස කරන්න."
+

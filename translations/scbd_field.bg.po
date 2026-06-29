@@ -114,3 +114,12 @@ msgstr "Актуализирана кардиналността на scbd_field_
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Разширени списъци, разделени със запетаи в делти за scbd_field_tezaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Настройки на полето SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Конфигуриране на настройките на полето SCBD."

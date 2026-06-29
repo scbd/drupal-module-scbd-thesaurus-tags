@@ -1,5 +1,5 @@
 {
-    "version": "2.0.9",
+    "version": "2.1.0",
     "scripts": {
         "test": "npm run test:js",
         "test:js": "jest",
@@ -15,9 +15,9 @@
         "deploy:dev-bsl-clean": "ssh ubuntu@staging.infra.cbd.int 'sudo rm -rf /home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field && sudo mkdir -p /home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field && sudo chown -R ubuntu:ubuntu /home/ubuntu/dmsm/dev/dev/bsl/modules/custom/scbd-field' && npm run deploy:dev-bsl",
         "deploy:dev-bl2": "rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/dev/dev/bl2/modules/custom/scbd-field/",
         "deploy:dev-bl2-clean": "ssh ubuntu@staging.infra.cbd.int 'sudo rm -rf /home/ubuntu/dmsm/dev/dev/bl2/modules/custom/scbd-field && sudo mkdir -p /home/ubuntu/dmsm/dev/dev/bl2/modules/custom/scbd-field && sudo chown -R ubuntu:ubuntu /home/ubuntu/dmsm/dev/dev/bl2/modules/custom/scbd-field' && npm run deploy:dev-bl2",
-        "deploy:stg-bsl": "rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field/",
+        "deploy:stg-bsl": "rsync -av --exclude='.git' --exclude='.graphify*' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field/",
         "deploy:stg-bsl-clean": "ssh ubuntu@staging.infra.cbd.int 'sudo rm -rf /home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field && sudo mkdir -p /home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field && sudo chown -R ubuntu:ubuntu /home/ubuntu/dmsm/stg/stg/bsl/modules/custom/scbd-field' && npm run deploy:stg-bsl",
-        "deploy:stg-bl2": "rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bl2/modules/custom/scbd-field/",
+        "deploy:stg-bl2": "rsync -av --exclude='.git' --exclude='.graphify*' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/stg/stg/bl2/modules/custom/scbd-field/",
         "deploy:stg-bl2-clean": "ssh ubuntu@staging.infra.cbd.int 'sudo rm -rf /home/ubuntu/dmsm/stg/stg/bl2/modules/custom/scbd-field && sudo mkdir -p /home/ubuntu/dmsm/stg/stg/bl2/modules/custom/scbd-field && sudo chown -R ubuntu:ubuntu /home/ubuntu/dmsm/stg/stg/bl2/modules/custom/scbd-field' && npm run deploy:stg-bl2",
         "deploy:bsl": "rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='vendor' --exclude='.DS_Store' ./ ubuntu@staging.infra.cbd.int:/home/ubuntu/dmsm/prod/prod/bsl/modules/custom/scbd-field/",
         "deploy:bsl-clean": "ssh ubuntu@staging.infra.cbd.int 'sudo rm -rf /home/ubuntu/dmsm/prod/prod/bsl/modules/custom/scbd-field && sudo mkdir -p /home/ubuntu/dmsm/prod/prod/bsl/modules/custom/scbd-field && sudo chown -R ubuntu:ubuntu /home/ubuntu/dmsm/prod/prod/bsl/modules/custom/scbd-field' && npm run deploy:bsl",
@@ -40,5 +40,6 @@
             "**/tests/js/**/*.test.js"
         ],
         "coverageDirectory": "coverage/js"
-    }
+    },
+    "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"
 }

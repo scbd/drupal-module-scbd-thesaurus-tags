@@ -114,3 +114,13 @@ msgstr "Кардинальность scbd_field_thesaurus обновлена д�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Расширенные списки, разделенные запятыми, на дельты для scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Параметры поля SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Настройте параметры поля SCBD."
+

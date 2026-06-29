@@ -114,3 +114,14 @@ msgstr "SCBD_FIELD_THESAURUS கார்டினாலிட்டி வர�
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus க்கான டெல்டாக்களாக காமி பிரிக்கப்பட்ட பட்டியல்களை விரிவாக்கப்பட்டது."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD புலம் அமைப்புகள்"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD புலம் அமைப்புகளை கட்டமைக்கவும்."
+
+

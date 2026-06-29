@@ -114,3 +114,14 @@ msgstr "Nai-update ang scbd_field_thesaurus cardinality sa walang limitasyon."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Pinalawak na mga listahan na pinaghihiwalay ng kumot sa mga delta para sa scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Mga Setting ng SCBD Field"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "I-configure ang mga setting ng SCBD field."
+
+

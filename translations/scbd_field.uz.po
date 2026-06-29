@@ -114,3 +114,14 @@ msgstr "Scbd_field_thesaurus cardinality cheksizlikka yangilandi."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "scbd_field_thesaurus uchun deltalarga vergul bilan ajratilgan ro'yxatlarni kengaytirdi."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "SCBD Maydoni Sozlamalari"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "SCBD maydoni sozlamalarini sozlang."
+
+

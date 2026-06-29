@@ -114,3 +114,12 @@ msgstr "Ενημερώθηκε η καρδιναλικότητα του scbd_fie
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Διευρυμένες λίστες διαχωρισμένες με κόμματα σε δέλτα για το scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Ρυθμίσεις πεδίου SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Διαμορφώστε τις ρυθμίσεις πεδίου SCBD."

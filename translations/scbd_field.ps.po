@@ -114,3 +114,13 @@ msgstr "تازه شوي scbd_field_thesaurus کارډینالیت لامحدود
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "د scbd_field_thesaurus لپاره ډیلټا کې د کموم جلا شوي لیستونه پراختیا کول."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "د SCBD ډګر تنظیمات"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "د SCBD ډګر تنظیمات کنفیګر کړئ."
+

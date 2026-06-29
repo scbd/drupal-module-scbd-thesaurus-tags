@@ -114,3 +114,14 @@ msgstr "Përditësuar kardinaliteti scbd_field_thesaurus në të pakufizuar."
 #: scbd_field.install:29
 msgid "Expanded comma-separated lists into deltas for scbd_field_thesaurus."
 msgstr "Listat e zgjeruara të ndara me presë në delta për scbd_field_thesaurus."
+
+#: scbd_field.links.menu.yml
+#: scbd_field.routing.yml
+msgid "SCBD Field Settings"
+msgstr "Cilësimet e fushës SCBD"
+
+#: scbd_field.links.menu.yml
+msgid "Configure SCBD Field settings."
+msgstr "Konfiguro cilësimet e fushës SCBD."
+
+
