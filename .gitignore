@@ -78,3 +78,5 @@ build/coverage-php/
 docs/.temp
 graphify-out
 graphify-out-backups
+# Stray translation extraction temp files
+translations/*.po.tmp

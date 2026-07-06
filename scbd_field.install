@@ -289,16 +289,10 @@ function scbd_field_install() {
   // This ensures the installed schema matches the code definition.
   _scbd_field_sync_field_storage_definitions();
 
-  // Import provided translations (.po) bundled with the module, if locale
-  // module is enabled. This ensures strings are available immediately.
-  if (\Drupal::moduleHandler()->moduleExists('locale')) {
-    /** @var \Drupal\locale\SourceStringStorageInterface $source_storage */
-    // Rebuild locale cache to pick up .po files under translations/.
-    \Drupal::service('locale.storage')->deleteConfiguration('scbd_field');
-    // Queue import of translation files (core scans translations/ automatically
-    // on cache rebuild / locale update). Force a string refresh.
-    \Drupal::service('string_translation')->reset();
-  }
+  // Import the .po files bundled under translations/ so the module's UI
+  // strings (page titles, menu links, form labels) are translated
+  // immediately for every installed language.
+  _scbd_field_import_bundled_translations();
 }
 
 /**
@@ -695,4 +689,90 @@ function _scbd_field_sync_field_storage_definitions(): array {
   \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
 
   return $messages;
+}
+
+/**
+ * Update: Import the bundled .po translation files for all installed languages.
+ *
+ * Earlier releases shipped translations/ but never registered the module as an
+ * interface-translation project, so Drupal core never scanned or imported the
+ * files - leaving the admin page title ("SCBD Field Settings") and its menu
+ * description untranslated. This imports them directly, independent of the
+ * module's install path or the locale auto-update settings.
+ */
+function scbd_field_update_9010() {
+  $count = _scbd_field_import_bundled_translations();
+  return t('Imported bundled translations for @count language(s).', ['@count' => $count]);
+}
+
+/**
+ * Import the .po files bundled in this module's translations/ directory.
+ *
+ * Drupal core only auto-scans a module's translations/ directory when the
+ * module is registered as an interface-translation project (see the
+ * "interface translation project" / "server pattern" keys in the .info.yml).
+ * To guarantee the strings are available on install and every update -
+ * regardless of where the module lives on disk or whether translation
+ * auto-updates are enabled - we also import each bundled .po file directly
+ * into the locale database for every installed language.
+ *
+ * Existing user customizations are preserved; only non-customized strings are
+ * overwritten.
+ *
+ * @return int
+ *   The number of language files imported.
+ */
+function _scbd_field_import_bundled_translations(): int {
+  if (!\Drupal::moduleHandler()->moduleExists('locale')) {
+    return 0;
+  }
+
+  $module_path = \Drupal::service('extension.list.module')->getPath('scbd_field');
+  $dir = $module_path . '/translations';
+  $imported = 0;
+
+  foreach (\Drupal::languageManager()->getLanguages() as $langcode => $language) {
+    // English is the source language; nothing to import.
+    if ($langcode === 'en') {
+      continue;
+    }
+
+    $uri = $dir . '/scbd_field.' . $langcode . '.po';
+    if (!is_file($uri)) {
+      continue;
+    }
+
+    $file = new \stdClass();
+    $file->filename = 'scbd_field.' . $langcode . '.po';
+    $file->uri = $uri;
+    $file->langcode = $langcode;
+
+    $options = [
+      'langcode' => $langcode,
+      // Overwrite existing non-customized translations, but never clobber
+      // strings an administrator has customized on the site.
+      'overwrite_options' => [
+        'not_customized' => TRUE,
+        'customized' => FALSE,
+      ],
+      'customized' => LOCALE_NOT_CUSTOMIZED,
+    ];
+
+    try {
+      \Drupal\locale\Gettext::fileToDatabase($file, $options);
+      $imported++;
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('scbd_field')->error('Failed to import translation @file: @message', [
+        '@file' => $file->filename,
+        '@message' => $e->getMessage(),
+      ]);
+    }
+  }
+
+  // Reset the string-translation cache so the imported strings render
+  // immediately without a manual cache clear.
+  \Drupal::service('string_translation')->reset();
+
+  return $imported;
 }
