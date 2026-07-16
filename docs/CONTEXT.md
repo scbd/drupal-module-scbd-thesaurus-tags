@@ -21,6 +21,33 @@ a human-facing label only; nothing in the code references it. Read every code an
 `scbd_field`, never as "thesaurus tags".
 _Avoid_: thesaurus_tags, scbd_thesaurus_tags, drupal-module-scbd-thesaurus-tags (as a code name)
 
+### Actors
+
+**Content manager**:
+The editorial end-user who tags Drupal content with Terms through the Widget - searching,
+picking, and reviewing terms per Domain on the content-edit form. The primary human actor in the
+tagging flow and the voice of most user stories.
+_Avoid_: content editor, editor, author, tagger
+
+**Site manager**:
+The per-site governance role that configures how the field behaves on one site: the Domain order,
+the `administer scbd field settings` permission that gates the settings form, the country scope
+drawn from `bioland.settings`, the Auto-add toggles, the biosafety defaults, and debug mode.
+Configures once per site; the configuration applies everywhere the field is used.
+_Avoid_: site administrator, site admin, configuration admin
+
+**Drupal administrator**:
+The technical Drupal role that installs and maintains the module: adds the SCBD Thesaurus field to
+a content type, runs the field-mismatch diagnostic script, owns the versioned Bundle artifact, and
+relies on transparent legacy-key migration. Short form **drupal admin** is acceptable.
+_Avoid_: maintainer, developer, devops
+
+**System**:
+The non-human actor - behaviours the module performs automatically with no user action: Auto-add,
+Auto-link, Label fallback resolution, empty-item detection, double-mount guarding, and legacy Term
+key migration on save.
+_Avoid_: the module, the app, automation
+
 ### Vocabulary
 
 **Term**:

@@ -78,82 +78,82 @@ older SDG keys (`SDG-GOAL-*`) are migrated transparently to
 
 ### Editing & tagging
 
-1. As a content editor, I want to add an "SCBD Thesaurus" field to a content type, so that authors of that type can tag content with controlled-vocabulary terms.
-2. As a content editor, I want a labeled dropdown per vocabulary domain (GBF targets, SDGs, national targets, countries, subjects, ...), so that I can find and pick terms by category instead of from one giant list.
-3. As a content editor, I want to type to search within a domain's dropdown, so that I can locate a term quickly in a long list.
-4. As a content editor, I want to select multiple terms in a multi-select domain, so that one piece of content can be tagged with several relevant terms.
-5. As a content editor, I want single-value domains (e.g. ecosystem types, statuses, scopes) to allow exactly one choice, so that the data stays consistent with how that vocabulary is meant to be used.
-6. As a content editor, I want grouped domains (e.g. BCH subject groups) to show group headers and let me select a whole group at once, so that I can tag broad themes efficiently.
-7. As a content editor, I want the widget to show help text above the dropdowns, so that I understand what the field is for.
-8. As a content editor, I want the raw text input that stores the value to be hidden by default, so that the form is clean and I am not tempted to edit keys by hand.
+1. As a drupal admin, I want to add an "SCBD Thesaurus" field to a content type, so that authors of that type can tag content with controlled-vocabulary terms.
+2. As a content manager, I want a labeled dropdown per vocabulary domain (GBF targets, SDGs, national targets, countries, subjects, ...), so that I can find and pick terms by category instead of from one giant list.
+3. As a content manager, I want to type to search within a domain's dropdown, so that I can locate a term quickly in a long list.
+4. As a content manager, I want to select multiple terms in a multi-select domain, so that one piece of content can be tagged with several relevant terms.
+5. As a content manager, I want single-value domains (e.g. ecosystem types, statuses, scopes) to allow exactly one choice, so that the data stays consistent with how that vocabulary is meant to be used.
+6. As a content manager, I want grouped domains (e.g. BCH subject groups) to show group headers and let me select a whole group at once, so that I can tag broad themes efficiently.
+7. As a content manager, I want the widget to show help text above the dropdowns, so that I understand what the field is for.
+8. As a content manager, I want the raw text input that stores the value to be hidden by default, so that the form is clean and I am not tempted to edit keys by hand.
 
 ### Value round-trip & persistence
 
-9. As a content editor, I want the terms I selected to be saved when I save the entity, so that my tagging is not lost.
-10. As a content editor, I want my previously saved terms to reappear, fully resolved to their human labels, when I re-open content for editing, so that I can see and adjust existing tags.
+9. As a content manager, I want the terms I selected to be saved when I save the entity, so that my tagging is not lost.
+10. As a content manager, I want my previously saved terms to reappear, fully resolved to their human labels, when I re-open content for editing, so that I can see and adjust existing tags.
 11. As a system, I want to persist stable term identifiers (keys / UUIDs) rather than display labels, so that tags remain valid across label changes, translations, and cross-site reporting.
-12. As a content editor, I want re-saving content without changes to leave the stored value intact, so that an edit does not silently corrupt or reorder my tags.
-13. As a maintainer, I want legacy SDG keys (`SDG-GOAL-NN`) to be read transparently and rewritten to the current `SUSTAINABLE-DEVELOPMENT-GOAL-NN` form on next save, so that old data keeps working without a manual migration.
+12. As a content manager, I want re-saving content without changes to leave the stored value intact, so that an edit does not silently corrupt or reorder my tags.
+13. As a drupal admin, I want legacy SDG keys (`SDG-GOAL-NN`) to be read transparently and rewritten to the current `SUSTAINABLE-DEVELOPMENT-GOAL-NN` form on next save, so that old data keeps working without a manual migration.
 14. As a system, I want a field item to count as empty only when it holds no value at all, so that empty fields do not produce spurious stored rows.
 
 ### Multilingual labels
 
-15. As an editor on a multilingual site, I want term labels rendered in my current interface language, so that I can tag content in the language I am working in.
-16. As an editor, I want a term to fall back to another enabled language (ultimately English, then the raw key) when no label exists for my current locale, so that I never see a blank option.
-17. As an editor, I want the domain/group **labels themselves** (the dropdown captions) localized for my interface language, so that the whole widget reads naturally.
+15. As a content manager on a multilingual site, I want term labels rendered in my current interface language, so that I can tag content in the language I am working in.
+16. As a content manager, I want a term to fall back to another enabled language (ultimately English, then the raw key) when no label exists for my current locale, so that I never see a blank option.
+17. As a content manager, I want the domain/group **labels themselves** (the dropdown captions) localized for my interface language, so that the whole widget reads naturally.
 18. As a system, I want the set of fallback languages to come from the site's actually-enabled languages (as 2-letter ISO codes), so that label resolution matches the site configuration.
 
 ### Scoped / derived vocabularies
 
-19. As an editor on a national (Bioland) site, I want the national-targets dropdown to show only my country's targets, so that I am not offered irrelevant targets from other countries.
-20. As a site administrator, I want the field's country scope to come from the site's `bioland.settings`, so that scoping is configured once per site and applies everywhere the field is used.
+19. As a content manager on a national (Bioland) site, I want the national-targets dropdown to show only my country's targets, so that I am not offered irrelevant targets from other countries.
+20. As a site manager, I want the field's country scope to come from the site's `bioland.settings`, so that scoping is configured once per site and applies everywhere the field is used.
 21. As a system, I want national targets to be looked up by UUID, so that targets without a human-friendly slug are still uniquely identifiable.
 
 ### Domain configuration (admin)
 
-22. As a site administrator, I want a settings form to choose which domains appear and in what order, so that each site shows only the vocabularies it cares about.
-23. As a site administrator, I want the settings form to reject any domain id that is not on the supported whitelist, so that a typo cannot silently break the widget.
-24. As a site administrator, I want a reference list of all valid domain keys shown on the settings form, so that I know exactly what I can enter.
-25. As a site administrator on a biosafety site, I want to be offered the biosafety default domain order when I have not saved one, so that BCH sites get a sensible starting configuration.
-26. As a site administrator, I want a clearly-scoped permission (`administer scbd field settings`) gating the settings form, so that only trusted roles can change global field behavior.
-27. As a site administrator, I want the settings form reachable from Configuration -> Content authoring, so that I can find it where Drupal admins expect content-related config.
+22. As a site manager, I want a settings form to choose which domains appear and in what order, so that each site shows only the vocabularies it cares about.
+23. As a site manager, I want the settings form to reject any domain id that is not on the supported whitelist, so that a typo cannot silently break the widget.
+24. As a site manager, I want a reference list of all valid domain keys shown on the settings form, so that I know exactly what I can enter.
+25. As a site manager on a biosafety site, I want to be offered the biosafety default domain order when I have not saved one, so that BCH sites get a sensible starting configuration.
+26. As a site manager, I want a clearly-scoped permission (`administer scbd field settings`) gating the settings form, so that only trusted roles can change global field behavior.
+27. As a site manager, I want the settings form reachable from Configuration -> Content authoring, so that I can find it where Drupal admins expect content-related config.
 
 ### GBF auto-linking
 
-28. As an editor, I want selecting a GBF target to automatically add its related SDGs and subjects, so that I do not have to memorize and apply the GBF<->SDG/Subject cross-walk by hand.
-29. As an editor, I want auto-linking to be additive only - existing selections are preserved and de-selecting a GBF target does not strip linked terms - so that the widget never removes a tag I made on purpose.
-30. As an editor, I want auto-linking to be one-way (only GBF picks pull in related terms; picking an SDG or subject pulls in nothing), so that the behavior is predictable and does not cascade.
+28. As a content manager, I want selecting a GBF target to automatically add its related SDGs and subjects, so that I do not have to memorize and apply the GBF<->SDG/Subject cross-walk by hand.
+29. As a content manager, I want auto-linking to be additive only - existing selections are preserved and de-selecting a GBF target does not strip linked terms - so that the widget never removes a tag I made on purpose.
+30. As a content manager, I want auto-linking to be one-way (only GBF picks pull in related terms; picking an SDG or subject pulls in nothing), so that the behavior is predictable and does not cascade.
 31. As a system, I want the GBF->related cross-walk resolved from a local mapping table, so that auto-linking works without an extra network round-trip.
 
 > **Source.** GBF auto-link lives in the field-js bundle: `src/utils/relations.js` reads the `GBF_SAMEAS` cross-walk table from `src/utils/constants.js`, scopes linked terms to `LINKABLE_DOMAINS = ['sdgs', 'subjects']`, and applies them additively + one-way (GBF picks pull in SDGs/subjects; the inverse pulls in nothing).
 
 ### Auto-add defaults on new content
 
-32. As an editor on a biosafety site creating new content, I want GBF Target 17 pre-selected, so that the standard biosafety reporting target is captured by default.
-33. As an editor on a single-country biosafety site creating new content, I want the site's country pre-selected, so that national attribution is captured without manual work.
-34. As a site administrator, I want to be able to disable auto-add of GBF Target 17 and/or countries, so that I can opt out when the defaults do not fit a site.
+32. As a content manager on a biosafety site creating new content, I want GBF Target 17 pre-selected, so that the standard biosafety reporting target is captured by default.
+33. As a content manager on a single-country biosafety site creating new content, I want the site's country pre-selected, so that national attribution is captured without manual work.
+34. As a site manager, I want to be able to disable auto-add of GBF Target 17 and/or countries, so that I can opt out when the defaults do not fit a site.
 35. As a system, I want auto-add applied only to new entities (not existing ones) and only when the value is not already present, so that editing old content does not inject unexpected tags or duplicates.
 36. As a system, I want auto-add of a country to happen only when the site has exactly one country, so that ambiguous multi-country sites are not given an arbitrary default.
 
 ### Biosafety-context behaviour
 
 37. As a system, I want the widget to detect biosafety mode from `bioland.settings.is_biosafety_land`, so that domain defaults and auto-add behavior adapt to BCH sites automatically.
-38. As a site administrator on a biosafety site, I want a different default domain set (BCH subject groups, GBF targets, national targets, countries) than a standard site, so that the picker matches the biosafety editorial workflow.
+38. As a site manager on a biosafety site, I want a different default domain set (BCH subject groups, GBF targets, national targets, countries) than a standard site, so that the picker matches the biosafety content managerial workflow.
 
 ### Loading, error & debug states
 
-39. As an editor, I want the picker to mount automatically when the edit form loads, so that I do not have to take any action to get the controlled-vocabulary UI.
+39. As a content manager, I want the picker to mount automatically when the edit form loads, so that I do not have to take any action to get the controlled-vocabulary UI.
 40. As a system, I want the widget guarded against mounting twice on the same element, so that AJAX-driven form re-renders do not stack multiple Vue apps.
 41. As a system, I want a clear console error (rather than a silent failure or a thrown exception) when Vue or the component bundle is missing, when the mount element is absent, or when the hidden input cannot be found, so that integration problems are diagnosable.
 42. As a system, I want a malformed field machine-name to be rejected up front so the widget degrades gracefully instead of building an unsafe selector, so that a bad field name cannot break or hijack the DOM query.
-43. As a site administrator, I want a debug mode that reveals the raw stored input(s), so that I can inspect exactly what keys are being saved when troubleshooting.
-44. As a maintainer, I want a field-mismatch diagnostic script that reports the entity field definition versus the actual database columns, so that I can detect and explain storage drift (notably the `value2` column).
+43. As a site manager, I want a debug mode that reveals the raw stored input(s), so that I can inspect exactly what keys are being saved when troubleshooting.
+44. As a drupal administrator, I want a field-mismatch diagnostic script that reports the entity field definition versus the actual database columns, so that I can detect and explain storage drift (notably the `value2` column).
 
 ### Bundle delivery & versioning
 
-45. As a maintainer, I want the Vue bundle published as a single IIFE that exposes one global, so that Drupal can load it as a plain script library alongside a CDN-provided Vue.
-46. As a maintainer, I want Vue provided externally (CDN global) rather than bundled, so that the widget bundle stays small and Vue is shared.
-47. As a maintainer, I want the module to load a versioned bundle artifact, so that the field type, widget, and front-end stay in lockstep at a known version.
+45. As a drupal administrator, I want the Vue bundle published as a single IIFE that exposes one global, so that Drupal can load it as a plain script library alongside a CDN-provided Vue.
+46. As a drupal administrator, I want Vue provided externally (CDN global) rather than bundled, so that the widget bundle stays small and Vue is shared.
+47. As a drupal administrator, I want the module to load a versioned bundle artifact, so that the field type, widget, and front-end stay in lockstep at a known version.
 
 ## Implementation Decisions
 

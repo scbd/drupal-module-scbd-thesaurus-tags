@@ -16,7 +16,7 @@ references: [docs/CONTEXT.md, docs/prd.md, docs/adr/, README.md, scripts/diagnos
 
 `scbd_field` is a Drupal module that defines a custom field type (`scbd_field_thesaurus`), a widget (`scbd_thesaurus_widget`), and an admin settings form. The widget renders a set of multiselect dropdowns - one per "domain" (controlled vocabulary published on `api.cbd.int`: GBF targets, SDGs, national targets, countries, CBD/BCH subjects, IUCN ecosystem types, etc.) - by mounting a **Vue 3 IIFE bundle** (`drupal-module-scbd-field-js`) into a `<div>` the widget emits.
 
-The two repos are joined by one thin **glue script** (`scbd_field-2-0-9.js`, a `Drupal.behaviors` attach) and one **shared DOM contract**: a hidden Drupal text input that holds a comma-separated list of term keys. The editor picks terms in Vue; Vue writes the keys back into that hidden input; Drupal submits and persists them.
+The two repos are joined by one thin **glue script** (`scbd_field-2-0-9.js`, a `Drupal.behaviors` attach) and one **shared DOM contract**: a hidden Drupal text input that holds a comma-separated list of term keys. The content manager picks terms in Vue; Vue writes the keys back into that hidden input; Drupal submits and persists them.
 
 **The decisive rule for this document:** the *module's actual runtime usage is the source of truth* for the interface. Where the bundle code or either README disagrees with what the module does at runtime, the module wins, the drift is recorded in §6, and the canonical contract is stated in §5.
 
@@ -24,8 +24,8 @@ The two repos are joined by one thin **glue script** (`scbd_field-2-0-9.js`, a `
 
 ```mermaid
 flowchart TB
-  editor(["Content editor<br/>(Drupal author)"])
-  admin(["Site admin"])
+  editor(["Content manager<br/>(Drupal author)"])
+  admin(["Site manager"])
 
   system["SCBD Thesaurus Tags<br/>Drupal field + Vue widget"]
 
@@ -46,7 +46,7 @@ The field crosses two runtimes: **Drupal/PHP** (form build + storage) and the **
 
 ```mermaid
 flowchart TB
-  editor(["Content editor"])
+  editor(["Content manager"])
 
   subgraph drupal["Drupal site (PHP)"]
     direction TB
@@ -189,7 +189,7 @@ Drupal saves the textfield's submitted value into the field type's `value` colum
 
 ```mermaid
 sequenceDiagram
-  actor Editor
+  actor Editor as Content manager
   participant Widget as FieldWidget (PHP)
   participant DOM as Hidden input + mount div
   participant Glue as scbd_field-2-0-9.js
@@ -283,7 +283,7 @@ stateDiagram-v2
   FormRendered --> PreSeeded: glue merges auto-add + initial into hidden input
   PreSeeded --> Mounted: createApp(...).mount(#scbd-field-thesaurus-name)
   Mounted --> Hydrated: onMounted loadOptions then read hidden value
-  Hydrated --> Editing: editor selects / removes terms
+  Hydrated --> Editing: content manager selects / removes terms
   Editing --> Editing: handleChange writes join(',') to hidden input
   Editing --> Submitted: Drupal form submit
   Submitted --> [*]: value persisted to field storage
